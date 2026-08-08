@@ -65,10 +65,52 @@ const heroImages = [
   "/carousel/dairy-processing-machine.jpg",
 ];
 
+const storeGallery = [
+  "/store-gallery/27980283-board-1563882717197-1000x1000.jpg",
+  "/store-gallery/27980283-board-1574941744979-1000x1000.jpg",
+  "/store-gallery/27980283-board-1682757842584-1000x1000-2.jpg",
+  "/store-gallery/27980283-board-1682757842584-1000x1000.jpg",
+  "/store-gallery/27980283-board-1734695186667-1000x1000.jpg",
+  "/store-gallery/27980283-board-1779454152448-1000x1000.png",
+  "/store-gallery/27980283-location-1563882719208-1000x1000.jpg",
+  "/store-gallery/27980283-location-1584100365282-1000x1000.jpg",
+  "/store-gallery/27980283-location-1584100369253-1000x1000.jpg",
+  "/store-gallery/27980283-location-1652168517494-1000x1000.jpg",
+  "/store-gallery/27980283-location-1655543335975-1000x1000.jpg",
+  "/store-gallery/27980283-location-1655543336935-1000x1000.jpg",
+  "/store-gallery/27980283-location-1657621929107-1000x1000.jpg",
+  "/store-gallery/27980283-location-1657621930772-1000x1000.jpg",
+  "/store-gallery/27980283-location-1659607283511-1000x1000.jpg",
+  "/store-gallery/27980283-location-1660989168128-1000x1000.jpg",
+  "/store-gallery/27980283-location-1662980062470-1000x1000.jpg",
+  "/store-gallery/27980283-location-1662980064459-1000x1000.jpg",
+  "/store-gallery/27980283-location-1686144457362-1000x1000.jpg",
+  "/store-gallery/27980283-location-1687429765543-1000x1000.jpg",
+  "/store-gallery/27980283-location-1687429767684-1000x1000.jpg",
+  "/store-gallery/27980283-location-1687429771237-1000x1000.jpg",
+  "/store-gallery/27980283-location-1689774902067-1000x1000.jpg",
+  "/store-gallery/27980283-location-1689774907502-1000x1000.jpg",
+  "/store-gallery/27980283-location-1696423751124-1000x1000.jpg",
+  "/store-gallery/27980283-location-1696578330032-1000x1000.jpg",
+  "/store-gallery/27980283-location-1696578330797-1000x1000.jpg",
+  "/store-gallery/27980283-location-1696578335137-1000x1000.jpg",
+  "/store-gallery/27980283-location-1696578336397-1000x1000.jpg",
+  "/store-gallery/27980283-location-1701419655271-1000x1000.jpg",
+  "/store-gallery/27980283-location-1725627609843-1000x1000.jpg",
+  "/store-gallery/27980283-location-1734695187164-1000x1000.jpg",
+  "/store-gallery/27980283-location-1734695187356-1000x1000.jpg",
+  "/store-gallery/27980283-location-1734695187540-1000x1000.jpg",
+  "/store-gallery/27980283-location-1734695187755-1000x1000.jpg",
+  "/store-gallery/27980283-location-1744022508920-1000x1000.png",
+  "/store-gallery/27980283-location-1752915547623-1000x1000.png",
+  "/store-gallery/27980283-location-1755859132033-1000x1000.png",
+];
+
 export default function Home() {
   const [lang, setLang] = useState<Lang>("en");
   const [slide, setSlide] = useState(0);
   const [edit, setEdit] = useState(false);
+  const [showAllGallery, setShowAllGallery] = useState(false);
   const t = copy[lang];
   useEffect(() => { const timer = setInterval(() => setSlide(s => (s + 1) % heroImages.length), 5000); return () => clearInterval(timer); }, []);
 
@@ -82,20 +124,21 @@ export default function Home() {
 
     <section className="hero" id="home" style={{backgroundImage:`linear-gradient(90deg,rgba(5,28,16,.88),rgba(5,28,16,.18)),url(${heroImages[slide]})`}}>
       <div className="hero-content" contentEditable={edit} suppressContentEditableWarning>
-        <p className="eyebrow">{t.eyebrow}</p><h1>{t.title}</h1><p className="lead">{t.sub}</p>
+        <p className="eyebrow">{t.eyebrow}</p><h1>{t.title}</h1><p className="hero-tagline">{lang === "en" ? "Powering Progress, Serving with Integrity." : "सोनी मशीनरी — मशीनों में मज़बूती, सेवा में सच्चाई।"}</p><p className="lead">{t.sub}</p>
         <div className="hero-buttons"><a className="btn" href="#contact">{t.quote} →</a><a className="btn ghost" href="#products">{t.explore}</a></div>
         <div className="trust"><b>52+</b><span>{lang === "en" ? "years of dependable service" : "वर्षों की भरोसेमंद सेवा"}</span><i></i><b>2</b><span>{lang === "en" ? "generations of experience" : "पीढ़ियों का अनुभव"}</span></div>
       </div>
       <div className="dots">{heroImages.map((_,i)=><button key={i} aria-label={`Slide ${i+1}`} className={i===slide?"active":""} onClick={()=>setSlide(i)}/>)}</div>
     </section>
 
-    <section className="legacy section" id="legacy">
-      <div className="section-kicker">OUR LEGACY · हमारी विरासत</div><h2 contentEditable={edit} suppressContentEditableWarning>{t.story}</h2><p className="intro" contentEditable={edit} suppressContentEditableWarning>{t.storyp}</p>
-      <div className="founders">
-        <article><img src="/gurdeep-soni.png" alt="Gurdeep Singh Soni"/><div><span>FOUNDER · संस्थापक</span><h3>Gurdeep Singh Soni</h3><p>{lang === "en" ? "He established Soni Machinery Stores in 1974 and built its foundation on fair dealing, practical knowledge and relationships that last." : "उन्होंने 1974 में सोनी मशीनरी स्टोर्स की स्थापना की और निष्पक्ष व्यवहार, व्यावहारिक ज्ञान व स्थायी रिश्तों की नींव रखी।"}</p></div></article>
-        <article><img src="/sumeet-soni.png" alt="Sumeet Singh Soni"/><div><span>SECOND GENERATION · दूसरी पीढ़ी</span><h3>Sumeet Singh Soni</h3><p>{lang === "en" ? "Carrying the legacy forward with decades of hands-on knowledge across agricultural, dairy and general machinery." : "कृषि, डेयरी और सामान्य मशीनरी के दशकों के व्यावहारिक ज्ञान के साथ विरासत को आगे बढ़ा रहे हैं।"}</p></div></article>
+    <section className="legacy section legacy-redesign" id="legacy">
+      <div className="legacy-heading"><div><div className="section-kicker">OUR LEGACY · हमारी विरासत</div><h2 contentEditable={edit} suppressContentEditableWarning>{t.story}</h2></div><p className="intro" contentEditable={edit} suppressContentEditableWarning>{t.storyp}</p></div>
+      <div className="legacy-feature">
+        <div className="founder-portrait"><img src="/gurdeep-soni.png" alt="Gurdeep Singh Soni, founder of Soni Machinery Stores"/><span className="year-mark">1974</span></div>
+        <div className="founder-story"><span>FOUNDER · संस्थापक</span><h3>Gurdeep Singh Soni</h3><blockquote>{lang === "en" ? "Understand what the customer needs, offer dependable machinery at a fair price, and build relationships that last." : "ग्राहक की जरूरत समझें, उचित मूल्य पर भरोसेमंद मशीन दें और ऐसे रिश्ते बनाएँ जो पीढ़ियों तक चलें।"}</blockquote><p>{lang === "en" ? "From Kanpur’s historic Latouche Road machinery market, he laid the foundation for a family enterprise built on practical knowledge, honest guidance and responsibility beyond the sale." : "कानपुर के ऐतिहासिक लाटूश रोड मशीनरी बाजार से उन्होंने व्यावहारिक ज्ञान, ईमानदार सलाह और बिक्री के बाद भी जिम्मेदारी निभाने वाले पारिवारिक व्यवसाय की नींव रखी।"}</p></div>
+        <div className="next-generation"><img src="/sumeet-soni.png" alt="Sumeet Singh Soni, second generation proprietor"/><div><span>SECOND GENERATION · दूसरी पीढ़ी</span><h3>Sumeet Singh Soni</h3><p>{lang === "en" ? "Carrying the founder’s values forward with decades of hands-on machinery experience." : "दशकों के व्यावहारिक मशीनरी अनुभव के साथ संस्थापक के मूल्यों को आगे बढ़ा रहे हैं।"}</p></div></div>
       </div>
-      <div className="vision"><div><span>OUR VISION</span><h3>{lang === "en" ? "To be Uttar Pradesh’s most trusted machinery partner." : "उत्तर प्रदेश का सबसे भरोसेमंद मशीनरी साथी बनना।"}</h3></div><div><span>OUR MISSION</span><h3>{lang === "en" ? "The right machine, fair price and dependable service." : "सही मशीन, उचित मूल्य और भरोसेमंद सेवा।"}</h3></div></div>
+      <div className="purpose-grid"><article><span>01 · OUR VISION</span><h3>{lang === "en" ? "The most trusted machinery partner for farmers, businesses and communities across Uttar Pradesh." : "उत्तर प्रदेश के किसानों, व्यवसायों और समुदायों का सबसे भरोसेमंद मशीनरी साथी बनना।"}</h3></article><article><span>02 · OUR MISSION</span><h3>{lang === "en" ? "The right machine for the right job, at a fair price—backed by genuine guidance and dependable service." : "सही काम के लिए सही मशीन, उचित मूल्य पर—सच्ची सलाह और भरोसेमंद सेवा के साथ।"}</h3></article><article className="legacy-promise"><span>OUR PROMISE · हमारा वादा</span><p>{lang === "en" ? "Generations of experience. Practical advice. Dependable machinery. Honest service." : "पीढ़ियों का अनुभव। व्यावहारिक सलाह। भरोसेमंद मशीनरी। ईमानदार सेवा।"}</p></article></div>
     </section>
 
     <section className="products section" id="products"><div className="section-head"><div><div className="section-kicker">OUR RANGE · हमारी रेंज</div><h2>{t.products}</h2><p>{t.productSub}</p></div><a className="text-link" href="#contact">{lang === "en" ? "Request full catalogue →" : "पूरी सूची माँगें →"}</a></div>
@@ -111,7 +154,7 @@ export default function Home() {
 
     <section className="dealers section"><div className="section-kicker">TRUSTED BRANDS · विश्वसनीय ब्रांड</div><h2>{t.dealers}</h2><p>{lang === "en" ? "Brand logos and authorisations shown here are placeholders and ready to be replaced." : "यहाँ ब्रांड लोगो और अधिकृत विवरण अभी नमूने हैं और बदले जा सकते हैं।"}</p><div className="brand-row">{["HONDA","KIRLOSKAR","VST SHAKTI","KISANKRAFT","MAHINDRA","TEXMO"].map(b=><div key={b}>{b}<small>PLACEHOLDER</small></div>)}</div></section>
 
-    <section className="gallery section" id="gallery"><div className="section-head"><div><div className="section-kicker">ON THE FIELD · खेत में</div><h2>{t.gallery}</h2></div><p>{lang === "en" ? "Placeholder photography for your future product demos, customers and store moments." : "भविष्य के उत्पाद प्रदर्शन, ग्राहकों और स्टोर की तस्वीरों के लिए नमूना गैलरी।"}</p></div><div className="gallery-grid">{heroImages.map((src,i)=><figure key={src}><img src={src} alt={["Farmer operating a power tiller","Dairy farmer using a cream separator","Farmer operating an earth auger","Farmer spraying crops","Dairy processing machinery in operation"][i]}/>{i===0&&<figcaption>{lang === "en" ? "Better tools. Better work. Better tomorrow." : "बेहतर औज़ार। बेहतर काम। बेहतर कल।"}</figcaption>}</figure>)}</div></section>
+    <section className="gallery section store-gallery-section" id="gallery"><div className="section-head"><div><div className="section-kicker">INSIDE SONI MACHINERY · सोनी मशीनरी की झलक</div><h2>{lang === "en" ? "A working legacy, captured over the years." : "वर्षों से चलती आ रही विरासत की झलक।"}</h2></div><p>{lang === "en" ? "Real moments from our Latouche Road store—our people, machinery, customers and the everyday work behind five decades of trust." : "हमारे लाटूश रोड स्टोर के वास्तविक पल—हमारे लोग, मशीनरी, ग्राहक और पाँच दशकों के विश्वास के पीछे का रोज़मर्रा का काम।"}</p></div><div className="store-masonry">{storeGallery.slice(0,showAllGallery ? storeGallery.length : 12).map((src,i)=><figure key={src}><img src={src} loading="lazy" alt={`${i < 6 ? "Soni Machinery Stores exterior and team" : "Machinery and equipment inside Soni Machinery Stores"} ${i+1}`}/><span>{String(i+1).padStart(2,"0")}</span></figure>)}</div><div className="gallery-action"><button className="btn" onClick={()=>setShowAllGallery(!showAllGallery)}>{showAllGallery ? (lang === "en" ? "Show less" : "कम दिखाएँ") : (lang === "en" ? `View all ${storeGallery.length} photographs` : `सभी ${storeGallery.length} तस्वीरें देखें`)}</button></div></section>
 
     <section className="testimonials section"><div className="section-kicker">CUSTOMER VOICES · ग्राहकों की बात</div><h2>{t.testimonials}</h2><div className="quotes">{[
       ["They explained the options clearly and helped us choose what actually suited our farm.","Rajesh Yadav · Unnao"],
