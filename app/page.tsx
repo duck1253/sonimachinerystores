@@ -58,9 +58,11 @@ const copy = {
 };
 
 const heroImages = [
-  "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1800&q=85",
-  "https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c48?auto=format&fit=crop&w=1800&q=85",
-  "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1800&q=85",
+  "/carousel/power-tiller-farmer.jpg",
+  "/carousel/dairy-cream-separator.jpg",
+  "/carousel/earth-auger-farmer.jpg",
+  "/carousel/power-sprayer-farmer.jpg",
+  "/carousel/dairy-processing-machine.jpg",
 ];
 
 export default function Home() {
@@ -109,7 +111,7 @@ export default function Home() {
 
     <section className="dealers section"><div className="section-kicker">TRUSTED BRANDS · विश्वसनीय ब्रांड</div><h2>{t.dealers}</h2><p>{lang === "en" ? "Brand logos and authorisations shown here are placeholders and ready to be replaced." : "यहाँ ब्रांड लोगो और अधिकृत विवरण अभी नमूने हैं और बदले जा सकते हैं।"}</p><div className="brand-row">{["HONDA","KIRLOSKAR","VST SHAKTI","KISANKRAFT","MAHINDRA","TEXMO"].map(b=><div key={b}>{b}<small>PLACEHOLDER</small></div>)}</div></section>
 
-    <section className="gallery section" id="gallery"><div className="section-head"><div><div className="section-kicker">ON THE FIELD · खेत में</div><h2>{t.gallery}</h2></div><p>{lang === "en" ? "Placeholder photography for your future product demos, customers and store moments." : "भविष्य के उत्पाद प्रदर्शन, ग्राहकों और स्टोर की तस्वीरों के लिए नमूना गैलरी।"}</p></div><div className="gallery-grid">{heroImages.concat(["https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1200&q=80"]).map((src,i)=><figure key={src}><img src={src} alt={`Agriculture gallery ${i+1}`}/>{i===0&&<figcaption>{lang === "en" ? "Better tools. Better work. Better tomorrow." : "बेहतर औज़ार। बेहतर काम। बेहतर कल।"}</figcaption>}</figure>)}</div></section>
+    <section className="gallery section" id="gallery"><div className="section-head"><div><div className="section-kicker">ON THE FIELD · खेत में</div><h2>{t.gallery}</h2></div><p>{lang === "en" ? "Placeholder photography for your future product demos, customers and store moments." : "भविष्य के उत्पाद प्रदर्शन, ग्राहकों और स्टोर की तस्वीरों के लिए नमूना गैलरी।"}</p></div><div className="gallery-grid">{heroImages.map((src,i)=><figure key={src}><img src={src} alt={["Farmer operating a power tiller","Dairy farmer using a cream separator","Farmer operating an earth auger","Farmer spraying crops","Dairy processing machinery in operation"][i]}/>{i===0&&<figcaption>{lang === "en" ? "Better tools. Better work. Better tomorrow." : "बेहतर औज़ार। बेहतर काम। बेहतर कल।"}</figcaption>}</figure>)}</div></section>
 
     <section className="testimonials section"><div className="section-kicker">CUSTOMER VOICES · ग्राहकों की बात</div><h2>{t.testimonials}</h2><div className="quotes">{[
       ["They explained the options clearly and helped us choose what actually suited our farm.","Rajesh Yadav · Unnao"],
