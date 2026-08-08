@@ -32,6 +32,26 @@ const products = [
   ["Hand Tools & Spares", "हैंड टूल्स और स्पेयर", "Essential accessories and support parts for daily work.", "दैनिक काम के लिए आवश्यक सहायक उपकरण और पुर्जे।", "cutter.jpg"],
 ];
 
+type ProductCategory = "all" | "agriculture" | "pumps" | "dairy" | "workshop";
+
+const productCategories: {id: ProductCategory; en: string; hi: string; noteEn: string; noteHi: string}[] = [
+  {id:"all", en:"All Products", hi:"सभी उत्पाद", noteEn:"Complete range", noteHi:"पूरी रेंज"},
+  {id:"agriculture", en:"Agriculture", hi:"कृषि मशीनरी", noteEn:"Field & crop solutions", noteHi:"खेत और फसल समाधान"},
+  {id:"pumps", en:"Pumps & Motors", hi:"पंप और मोटर", noteEn:"Water & power systems", noteHi:"जल और शक्ति प्रणाली"},
+  {id:"dairy", en:"Dairy & Food", hi:"डेयरी और फूड", noteEn:"Processing equipment", noteHi:"प्रोसेसिंग उपकरण"},
+  {id:"workshop", en:"Workshop & Construction", hi:"वर्कशॉप और निर्माण", noteEn:"Professional equipment", noteHi:"व्यावसायिक उपकरण"},
+];
+
+const productCategoryMap: ProductCategory[] = [
+  "agriculture","agriculture","agriculture","agriculture","agriculture","agriculture",
+  "pumps","pumps","pumps",
+  "dairy","dairy","dairy",
+  "agriculture","agriculture","agriculture",
+  "dairy","dairy","dairy",
+  "workshop","workshop","workshop","workshop","workshop",
+  "agriculture","workshop",
+];
+
 const copy = {
   en: {
     nav: ["Home", "Legacy", "Products", "Services", "Gallery", "Contact"],
@@ -111,6 +131,7 @@ export default function Home() {
   const [slide, setSlide] = useState(0);
   const [edit, setEdit] = useState(false);
   const [showAllGallery, setShowAllGallery] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<ProductCategory>("all");
   const t = copy[lang];
   useEffect(() => { const timer = setInterval(() => setSlide(s => (s + 1) % heroImages.length), 5000); return () => clearInterval(timer); }, []);
 
@@ -142,7 +163,9 @@ export default function Home() {
     </section>
 
     <section className="products section" id="products"><div className="section-head"><div><div className="section-kicker">OUR RANGE · हमारी रेंज</div><h2>{t.products}</h2><p>{t.productSub}</p></div><a className="text-link" href="#contact">{lang === "en" ? "Request full catalogue →" : "पूरी सूची माँगें →"}</a></div>
-      <div className="product-grid">{products.map((p,i)=><article className="product-card" key={p[0]}><div className="product-image"><img src={`/products/${p[4]}`} alt={lang === "en" ? p[0] : p[1]}/><span>{String(i+1).padStart(2,"0")}</span></div><div className="product-copy" contentEditable={edit} suppressContentEditableWarning><h3>{lang === "en" ? p[0] : p[1]}</h3><p>{lang === "en" ? p[2] : p[3]}</p><a href="#contact">{lang === "en" ? "Enquire" : "पूछताछ"} →</a></div></article>)}</div>
+      <div className="category-panel" role="tablist" aria-label={lang === "en" ? "Product categories" : "उत्पाद श्रेणियाँ"}>{productCategories.map(category => {const count = category.id === "all" ? products.length : productCategoryMap.filter(item => item === category.id).length; return <button key={category.id} role="tab" aria-selected={activeCategory === category.id} className={activeCategory === category.id ? "active" : ""} onClick={()=>setActiveCategory(category.id)}><span>{lang === "en" ? category.en : category.hi}</span><small>{lang === "en" ? category.noteEn : category.noteHi}</small><b>{String(count).padStart(2,"0")}</b></button>})}</div>
+      <div className="category-result"><span>{lang === "en" ? "Showing" : "दिखाए जा रहे हैं"}</span><b>{activeCategory === "all" ? (lang === "en" ? "All products" : "सभी उत्पाद") : (lang === "en" ? productCategories.find(c=>c.id===activeCategory)?.en : productCategories.find(c=>c.id===activeCategory)?.hi)}</b></div>
+      <div className="product-grid">{products.map((p,i)=>({p,i})).filter(({i})=>activeCategory === "all" || productCategoryMap[i] === activeCategory).map(({p,i})=><article className="product-card" key={p[0]}><div className="product-image"><img src={`/products/${p[4]}`} alt={lang === "en" ? p[0] : p[1]}/><span>{String(i+1).padStart(2,"0")}</span><em>{lang === "en" ? productCategories.find(c=>c.id===productCategoryMap[i])?.en : productCategories.find(c=>c.id===productCategoryMap[i])?.hi}</em></div><div className="product-copy" contentEditable={edit} suppressContentEditableWarning><h3>{lang === "en" ? p[0] : p[1]}</h3><p>{lang === "en" ? p[2] : p[3]}</p><a href="#contact">{lang === "en" ? "Enquire" : "पूछताछ"} →</a></div></article>)}</div>
     </section>
 
     <section className="services section" id="services"><div className="section-kicker light">WHAT WE DO · हमारी सेवाएँ</div><h2>{t.services}</h2><div className="service-grid">{[
