@@ -4,52 +4,52 @@ import { useEffect, useState } from "react";
 
 type Lang = "en" | "hi";
 
-const products = [
-  ["Power Weeder", "पावर वीडर", "Efficient interculture and soil preparation for farms.", "खेतों में निराई और मिट्टी तैयार करने के लिए उपयोगी।", "weeder.jpg"],
-  ["Power Tiller", "पावर टिलर", "A dependable compact machine for tillage and farm work.", "जुताई और खेती के काम के लिए भरोसेमंद मशीन।", "tiller.jpg"],
-  ["Brush Cutter", "ब्रश कटर", "Fast clearing of grass, weeds and dense undergrowth.", "घास, खरपतवार और झाड़ियों की तेज़ कटाई।", "cutter.jpg"],
-  ["Earth Auger", "अर्थ ऑगर", "Quick, consistent pits for plantation and fencing.", "पौधारोपण और बाड़ के लिए तेज़ व समान गड्ढे।", "auger.jpg"],
-  ["Chainsaw", "चेनसॉ", "Powerful cutting for wood, orchards and maintenance.", "लकड़ी, बाग और रखरखाव के लिए शक्तिशाली कटाई।", "chainsaw.jpg"],
-  ["Seed Drill", "सीड ड्रिल", "Uniform seed placement for better crop establishment.", "बेहतर फसल के लिए बीजों की समान बुवाई।", "seeder.jpg"],
-  ["Water Pump", "वॉटर पंप", "Reliable water movement for irrigation and everyday use.", "सिंचाई और दैनिक उपयोग के लिए विश्वसनीय पंप।", "tiller.jpg"],
-  ["Submersible Pump", "सबमर्सिबल पंप", "Efficient borewell pumping for farms and businesses.", "खेत और व्यवसाय के लिए कुशल बोरवेल पंपिंग।", "weeder.jpg"],
-  ["Electric Motor", "इलेक्ट्रिक मोटर", "Dependable power for agricultural and industrial equipment.", "कृषि और औद्योगिक उपकरणों के लिए भरोसेमंद शक्ति।", "cutter.jpg"],
-  ["Chaff Cutter", "चारा कटर", "Consistent fodder cutting for dairy and livestock farms.", "डेयरी और पशुपालन के लिए समान चारा कटाई।", "chainsaw.jpg"],
-  ["Milking Machine", "मिल्किंग मशीन", "Hygienic, efficient milking for modern dairy operations.", "आधुनिक डेयरी के लिए स्वच्छ और कुशल दुहाई।", "seeder.jpg"],
-  ["Fodder Grinder", "चारा ग्राइंडर", "Convenient feed preparation for livestock.", "पशुओं के आहार की सुविधाजनक तैयारी।", "auger.jpg"],
-  ["Sprayer", "स्प्रेयर", "Even crop protection coverage with practical operation.", "आसान संचालन के साथ फसल सुरक्षा का समान छिड़काव।", "weeder.jpg"],
-  ["Knapsack Sprayer", "नैपसैक स्प्रेयर", "Portable spraying for fields, orchards and gardens.", "खेत, बाग और उद्यान के लिए पोर्टेबल स्प्रे।", "cutter.jpg"],
-  ["Power Reaper", "पावर रीपर", "Faster crop harvesting with reduced manual effort.", "कम मेहनत में फसल की तेज़ कटाई।", "tiller.jpg"],
-  ["Rice Mill", "राइस मिल", "Compact processing solution for paddy and grain.", "धान और अनाज के लिए कॉम्पैक्ट प्रोसेसिंग समाधान।", "seeder.jpg"],
-  ["Flour Mill", "आटा चक्की", "Durable milling for shops and small businesses.", "दुकानों और छोटे व्यवसायों के लिए टिकाऊ चक्की।", "auger.jpg"],
-  ["Mini Oil Expeller", "मिनी ऑयल एक्सपेलर", "Practical small-scale oil extraction equipment.", "छोटे स्तर पर तेल निकालने का व्यावहारिक उपकरण।", "chainsaw.jpg"],
-  ["Generator", "जनरेटर", "Backup power for farms, shops and worksites.", "खेत, दुकान और कार्यस्थल के लिए बैकअप बिजली।", "tiller.jpg"],
-  ["Air Compressor", "एयर कंप्रेसर", "Steady compressed air for workshop applications.", "वर्कशॉप के काम के लिए स्थिर संपीड़ित हवा।", "cutter.jpg"],
-  ["High Pressure Washer", "हाई प्रेशर वॉशर", "Powerful cleaning for machinery and vehicles.", "मशीनरी और वाहनों की शक्तिशाली सफाई।", "weeder.jpg"],
-  ["Concrete Cutter", "कंक्रीट कटर", "Precise cutting support for site and repair work.", "निर्माण और मरम्मत कार्य में सटीक कटाई।", "chainsaw.jpg"],
-  ["Vibrator Motor", "वाइब्रेटर मोटर", "Consistent performance for construction applications.", "निर्माण कार्यों के लिए निरंतर प्रदर्शन।", "auger.jpg"],
-  ["Mini Tractor Attachments", "मिनी ट्रैक्टर अटैचमेंट", "Versatile implements for multiple farm operations.", "खेती के अनेक कामों के लिए बहुउपयोगी उपकरण।", "seeder.jpg"],
-  ["Hand Tools & Spares", "हैंड टूल्स और स्पेयर", "Essential accessories and support parts for daily work.", "दैनिक काम के लिए आवश्यक सहायक उपकरण और पुर्जे।", "cutter.jpg"],
-];
+type ProductCategory = "all" | "dairy" | "cleaning" | "motors" | "pumps" | "agriculture";
 
-type ProductCategory = "all" | "agriculture" | "pumps" | "dairy" | "workshop";
+type Product = {category: Exclude<ProductCategory,"all">; brand: string; nameEn: string; nameHi: string; capacity: string; detailsEn: string; detailsHi: string; image: string};
+
+const products: Product[] = [
+  {category:"dairy",brand:"Kamdhenu",nameEn:"Cream Separator 60 LPH",nameHi:"क्रीम सेपरेटर 60 एलपीएच",capacity:"60 LPH",detailsEn:"For small dairy farms and low-volume milk separation.",detailsHi:"छोटे डेयरी फार्म और कम मात्रा में दूध से क्रीम अलग करने के लिए।",image:"image1.png"},
+  {category:"dairy",brand:"Kamdhenu",nameEn:"Cream Separator 165 LPH",nameHi:"क्रीम सेपरेटर 165 एलपीएच",capacity:"165 LPH",detailsEn:"For dairy farms and milk collection points.",detailsHi:"डेयरी फार्म और दूध संग्रह केंद्रों के लिए।",image:"image2.png"},
+  {category:"dairy",brand:"Kamdhenu",nameEn:"Cream Separator 300 LPH",nameHi:"क्रीम सेपरेटर 300 एलपीएच",capacity:"300 LPH",detailsEn:"For small commercial dairy processing.",detailsHi:"छोटे व्यावसायिक डेयरी प्रसंस्करण के लिए।",image:"image3.png"},
+  {category:"dairy",brand:"Kamdhenu",nameEn:"Cream Separator 450 LPH",nameHi:"क्रीम सेपरेटर 450 एलपीएच",capacity:"450 LPH",detailsEn:"For medium-scale dairy processing.",detailsHi:"मध्यम स्तर के डेयरी प्रसंस्करण के लिए।",image:"image4.png"},
+  {category:"dairy",brand:"Kamdhenu",nameEn:"Cream Separator 600 LPH",nameHi:"क्रीम सेपरेटर 600 एलपीएच",capacity:"600 LPH",detailsEn:"For commercial dairy processing.",detailsHi:"व्यावसायिक डेयरी प्रसंस्करण के लिए।",image:"image5.png"},
+  {category:"dairy",brand:"Kamdhenu",nameEn:"Cream Separator 1000 LPH",nameHi:"क्रीम सेपरेटर 1000 एलपीएच",capacity:"1000 LPH",detailsEn:"High-throughput equipment for large dairy operations.",detailsHi:"बड़े डेयरी संचालन के लिए उच्च क्षमता वाला उपकरण।",image:"image6.png"},
+  {category:"cleaning",brand:"Everest",nameEn:"Scooter Washer 100 PSI",nameHi:"स्कूटर वॉशर 100 पीएसआई",capacity:"100 PSI",detailsEn:"Compact washer for scooters and two-wheelers.",detailsHi:"स्कूटर और दोपहिया वाहनों के लिए कॉम्पैक्ट वॉशर।",image:"image7.png"},
+  {category:"cleaning",brand:"Everest",nameEn:"Car Washer Single Cylinder 175 PSI",nameHi:"कार वॉशर सिंगल सिलेंडर 175 पीएसआई",capacity:"175 PSI",detailsEn:"Single-cylinder washer for cars and trucks.",detailsHi:"कार और ट्रक की सफाई के लिए सिंगल-सिलेंडर वॉशर।",image:"image8.png"},
+  {category:"cleaning",brand:"Everest",nameEn:"Car Washer Single Cylinder 250 PSI",nameHi:"कार वॉशर सिंगल सिलेंडर 250 पीएसआई",capacity:"250 PSI",detailsEn:"Premium single-cylinder equipment for vehicle washing.",detailsHi:"वाहन धुलाई के लिए प्रीमियम सिंगल-सिलेंडर उपकरण।",image:"image9.png"},
+  {category:"cleaning",brand:"Everest",nameEn:"Car Washer Double Cylinder 300 PSI",nameHi:"कार वॉशर डबल सिलेंडर 300 पीएसआई",capacity:"300 PSI",detailsEn:"Double-cylinder washer for higher-throughput vehicle cleaning.",detailsHi:"अधिक क्षमता वाली वाहन सफाई के लिए डबल-सिलेंडर वॉशर।",image:"image10.png"},
+  {category:"cleaning",brand:"Everest",nameEn:"Industrial Washer 400 PSI",nameHi:"इंडस्ट्रियल वॉशर 400 पीएसआई",capacity:"400 PSI",detailsEn:"Heavy-duty equipment for industrial cleaning.",detailsHi:"औद्योगिक सफाई के लिए हेवी-ड्यूटी उपकरण।",image:"image11.png"},
+  {category:"motors",brand:"SONEE-DX",nameEn:"Electric Motor 1 HP",nameHi:"इलेक्ट्रिक मोटर 1 एचपी",capacity:"1 HP · SDX01",detailsEn:"Single-phase, four-pole, foot-mounted general-purpose motor.",detailsHi:"सिंगल-फेज, चार-पोल, फुट-माउंटेड सामान्य उपयोग की मोटर।",image:"image12.png"},
+  {category:"motors",brand:"SONEE-DX",nameEn:"Electric Motor 2 HP",nameHi:"इलेक्ट्रिक मोटर 2 एचपी",capacity:"2 HP · SDX02",detailsEn:"Single-phase, four-pole, foot-mounted machinery drive.",detailsHi:"सिंगल-फेज, चार-पोल, फुट-माउंटेड मशीनरी ड्राइव।",image:"image13.png"},
+  {category:"motors",brand:"SONEE-DX",nameEn:"Electric Motor 3 HP",nameHi:"इलेक्ट्रिक मोटर 3 एचपी",capacity:"3 HP · SDX03",detailsEn:"Single-phase, four-pole motor for general machinery.",detailsHi:"सामान्य मशीनरी के लिए सिंगल-फेज, चार-पोल मोटर।",image:"image14.png"},
+  {category:"motors",brand:"SONEE-DX",nameEn:"Electric Motor 5 HP",nameHi:"इलेक्ट्रिक मोटर 5 एचपी",capacity:"5 HP · SONEE-DX-5",detailsEn:"Heavy general-purpose drive with cast-iron body.",detailsHi:"कास्ट-आयरन बॉडी वाली हेवी सामान्य उपयोग की ड्राइव।",image:"image15.png"},
+  {category:"pumps",brand:"Texmo",nameEn:"DMS-2",nameHi:"डीएमएस-2",capacity:"DMS-2",detailsEn:"Slow-speed self-priming pump for domestic supply, tank filling and washing.",detailsHi:"घरेलू जल आपूर्ति, टंकी भरने और धुलाई के लिए धीमी गति का सेल्फ-प्राइमिंग पंप।",image:"image16.png"},
+  {category:"pumps",brand:"Texmo",nameEn:"DMS-2 (N)",nameHi:"डीएमएस-2 (एन)",capacity:"DMS-02N · 0.5 HP",detailsEn:"Self-priming domestic water-supply pump.",detailsHi:"घरेलू जल आपूर्ति के लिए सेल्फ-प्राइमिंग पंप।",image:"image17.png"},
+  {category:"pumps",brand:"Texmo",nameEn:"DMS-3",nameHi:"डीएमएस-3",capacity:"DMS-3 · 1 HP",detailsEn:"Self-priming pump for tank filling, pressure boosting and washing.",detailsHi:"टंकी भरने, दबाव बढ़ाने और धुलाई के लिए सेल्फ-प्राइमिंग पंप।",image:"image18.png"},
+  {category:"pumps",brand:"Texmo",nameEn:"DMS-3 (N)",nameHi:"डीएमएस-3 (एन)",capacity:"DMS-03N · 1 HP",detailsEn:"Domestic monoblock pump for reliable water supply.",detailsHi:"भरोसेमंद जल आपूर्ति के लिए घरेलू मोनोब्लॉक पंप।",image:"image19.png"},
+  {category:"pumps",brand:"Texmo",nameEn:"SCM 1150",nameHi:"एससीएम 1150",capacity:"SCM 1150",detailsEn:"Surface water pump for everyday transfer requirements.",detailsHi:"दैनिक जल स्थानांतरण आवश्यकताओं के लिए सरफेस वॉटर पंप।",image:"image20.png"},
+  {category:"pumps",brand:"Texmo",nameEn:"ACS-1575",nameHi:"एसीएस-1575",capacity:"ACS-1575",detailsEn:"Surface pumping solution for domestic and commercial use.",detailsHi:"घरेलू और व्यावसायिक उपयोग के लिए सरफेस पंपिंग समाधान।",image:"image21.png"},
+  {category:"pumps",brand:"Texmo",nameEn:"ACS-2280",nameHi:"एसीएस-2280",capacity:"ACS-2280",detailsEn:"Higher-duty surface pumping equipment.",detailsHi:"अधिक क्षमता वाला सरफेस पंपिंग उपकरण।",image:"image22.png"},
+  {category:"pumps",brand:"Texmo",nameEn:"4-inch Submersible",nameHi:"4-इंच सबमर्सिबल",capacity:"4-inch borewell series",detailsEn:"For domestic supply, irrigation, livestock and buildings.",detailsHi:"घरेलू आपूर्ति, सिंचाई, पशुपालन और भवनों के लिए।",image:"image23.png"},
+  {category:"pumps",brand:"Texmo",nameEn:"6-inch Submersible",nameHi:"6-इंच सबमर्सिबल",capacity:"6-inch borewell series",detailsEn:"For farm and commercial borewells.",detailsHi:"कृषि और व्यावसायिक बोरवेल के लिए।",image:"image24.png"},
+  {category:"pumps",brand:"Texmo",nameEn:"8-inch Submersible",nameHi:"8-इंच सबमर्सिबल",capacity:"8-inch borewell series",detailsEn:"For high-volume irrigation, community and industrial water supply.",detailsHi:"उच्च क्षमता वाली सिंचाई, सामुदायिक और औद्योगिक जल आपूर्ति के लिए।",image:"image25.png"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Power Weeder",nameHi:"पावर वीडर",capacity:"BP-650 · 7 HP",detailsEn:"For efficient weeding and soil preparation.",detailsHi:"कुशल निराई और मिट्टी तैयार करने के लिए।",image:"image26.png"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Mini Power Tiller",nameHi:"मिनी पावर टिलर",capacity:"BW-25 · 63 cc",detailsEn:"Compact tiller for kitchen gardens, beds and narrow rows.",detailsHi:"किचन गार्डन, क्यारियों और संकरी कतारों के लिए कॉम्पैक्ट टिलर।",image:"image27.png"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Earth Auger",nameHi:"अर्थ ऑगर",capacity:"BE-52 · 52 cc",detailsEn:"For plantation, fencing and post holes.",detailsHi:"पौधारोपण, बाड़ और खंभों के गड्ढों के लिए।",image:"image28.png"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Chainsaw",nameHi:"चेनसॉ",capacity:"CS-520 · 52 cc · 18 inch",detailsEn:"For firewood, pruning and garden maintenance.",detailsHi:"जलाऊ लकड़ी, छंटाई और बगीचे के रखरखाव के लिए।",image:"image29.png"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Brush Cutter",nameHi:"ब्रश कटर",capacity:"BX-35 · 35 cc",detailsEn:"For grass, brush, pruning and light tilling.",detailsHi:"घास, झाड़ियों, छंटाई और हल्की जुताई के लिए।",image:"image30.png"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Petrol Pump Set",nameHi:"पेट्रोल पंप सेट",capacity:"WP-22R · 7 HP",detailsEn:"For agriculture, construction and high-volume water transfer.",detailsHi:"कृषि, निर्माण और अधिक मात्रा में जल स्थानांतरण के लिए।",image:"image31.png"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Seeder",nameHi:"सीडर",capacity:"S-12 · 12 teeth",detailsEn:"Manual multi-crop seed placement for fields and gardens.",detailsHi:"खेत और बगीचों में अनेक फसलों की बुवाई के लिए मैनुअल सीडर।",image:"image32.png"},
+];
 
 const productCategories: {id: ProductCategory; en: string; hi: string; noteEn: string; noteHi: string}[] = [
   {id:"all", en:"All Products", hi:"सभी उत्पाद", noteEn:"Complete range", noteHi:"पूरी रेंज"},
-  {id:"agriculture", en:"Agriculture", hi:"कृषि मशीनरी", noteEn:"Field & crop solutions", noteHi:"खेत और फसल समाधान"},
-  {id:"pumps", en:"Pumps & Motors", hi:"पंप और मोटर", noteEn:"Water & power systems", noteHi:"जल और शक्ति प्रणाली"},
-  {id:"dairy", en:"Dairy & Food", hi:"डेयरी और फूड", noteEn:"Processing equipment", noteHi:"प्रोसेसिंग उपकरण"},
-  {id:"workshop", en:"Workshop & Construction", hi:"वर्कशॉप और निर्माण", noteEn:"Professional equipment", noteHi:"व्यावसायिक उपकरण"},
-];
-
-const productCategoryMap: ProductCategory[] = [
-  "agriculture","agriculture","agriculture","agriculture","agriculture","agriculture",
-  "pumps","pumps","pumps",
-  "dairy","dairy","dairy",
-  "agriculture","agriculture","agriculture",
-  "dairy","dairy","dairy",
-  "workshop","workshop","workshop","workshop","workshop",
-  "agriculture","workshop",
+  {id:"dairy", en:"Dairy Equipment", hi:"डेयरी उपकरण", noteEn:"Cream separation", noteHi:"क्रीम सेपरेशन"},
+  {id:"cleaning", en:"Cleaning Equipment", hi:"सफाई उपकरण", noteEn:"Vehicle & industrial", noteHi:"वाहन और औद्योगिक"},
+  {id:"motors", en:"Electric Motors", hi:"इलेक्ट्रिक मोटर", noteEn:"General-purpose drives", noteHi:"सामान्य उपयोग ड्राइव"},
+  {id:"pumps", en:"Water Pumps", hi:"वॉटर पंप", noteEn:"Surface & submersible", noteHi:"सरफेस और सबमर्सिबल"},
+  {id:"agriculture", en:"Agricultural Machinery", hi:"कृषि मशीनरी", noteEn:"Field & crop solutions", noteHi:"खेत और फसल समाधान"},
 ];
 
 const copy = {
@@ -61,7 +61,7 @@ const copy = {
     quote: "Get the right machine", explore: "Explore products", since: "A legacy of trust since 1974",
     story: "Built in Kanpur. Trusted across generations.",
     storyp: "Soni Machinery Stores is a trusted machinery and equipment dealer in Kanpur, serving customers since 1974. For over 50 years, we have built our reputation on fair business practices, dependable service, genuine guidance and long-standing relationships with generations of customers.",
-    products: "Machinery for every requirement", productSub: "A preview catalogue of 25 categories. Final specifications, brands and photographs can be updated anytime.",
+    products: "Machinery for every requirement", productSub: "Explore 32 products with catalogue-matched brands, capacities and photographs.",
     services: "Service beyond the sale", dealers: "Authorised dealer of", gallery: "Life in motion", testimonials: "Relationships that last", faq: "Frequently asked questions", contact: "Let’s find the right machine for your work.",
   },
   hi: {
@@ -72,7 +72,7 @@ const copy = {
     quote: "सही मशीन चुनें", explore: "उत्पाद देखें", since: "1974 से विश्वास की विरासत",
     story: "कानपुर में शुरुआत। पीढ़ियों का विश्वास।",
     storyp: "लाटूश रोड से, सोनी मशीनरी स्टोर्स किसानों, ठेकेदारों, छोटे व्यवसायों और औद्योगिक ग्राहकों की सेवा एक स्थायी वादे के साथ करता आया है: जरूरत समझें, सही मशीन सुझाएँ और हर बिक्री के बाद साथ निभाएँ।",
-    products: "हर जरूरत के लिए मशीनरी", productSub: "25 श्रेणियों की प्रारंभिक सूची। अंतिम विवरण, ब्रांड और तस्वीरें कभी भी बदली जा सकती हैं।",
+    products: "हर जरूरत के लिए मशीनरी", productSub: "कैटलॉग से मिलाए गए ब्रांड, क्षमता और तस्वीरों सहित 32 उत्पाद देखें।",
     services: "बिक्री के बाद भी सेवा", dealers: "अधिकृत विक्रेता", gallery: "खेत से प्रगति तक", testimonials: "रिश्ते जो चलते रहें", faq: "अक्सर पूछे जाने वाले सवाल", contact: "आपके काम के लिए सही मशीन चुनते हैं।",
   }
 };
@@ -162,9 +162,9 @@ export default function Home() {
     </section>
 
     <section className="products section" id="products"><div className="section-head"><div><div className="section-kicker">OUR RANGE · हमारी रेंज</div><h2>{t.products}</h2><p>{t.productSub}</p></div><a className="text-link" href="#contact">{lang === "en" ? "Request full catalogue →" : "पूरी सूची माँगें →"}</a></div>
-      <div className="category-panel" role="tablist" aria-label={lang === "en" ? "Product categories" : "उत्पाद श्रेणियाँ"}>{productCategories.map(category => {const count = category.id === "all" ? products.length : productCategoryMap.filter(item => item === category.id).length; return <button key={category.id} role="tab" aria-selected={activeCategory === category.id} className={activeCategory === category.id ? "active" : ""} onClick={()=>setActiveCategory(category.id)}><span>{lang === "en" ? category.en : category.hi}</span><small>{lang === "en" ? category.noteEn : category.noteHi}</small><b>{String(count).padStart(2,"0")}</b></button>})}</div>
+      <div className="category-panel" role="tablist" aria-label={lang === "en" ? "Product categories" : "उत्पाद श्रेणियाँ"}>{productCategories.map(category => {const count = category.id === "all" ? products.length : products.filter(item => item.category === category.id).length; return <button key={category.id} role="tab" aria-selected={activeCategory === category.id} className={activeCategory === category.id ? "active" : ""} onClick={()=>setActiveCategory(category.id)}><span>{lang === "en" ? category.en : category.hi}</span><small>{lang === "en" ? category.noteEn : category.noteHi}</small><b>{String(count).padStart(2,"0")}</b></button>})}</div>
       <div className="category-result"><span>{lang === "en" ? "Showing" : "दिखाए जा रहे हैं"}</span><b>{activeCategory === "all" ? (lang === "en" ? "All products" : "सभी उत्पाद") : (lang === "en" ? productCategories.find(c=>c.id===activeCategory)?.en : productCategories.find(c=>c.id===activeCategory)?.hi)}</b></div>
-      <div className="product-grid">{products.map((p,i)=>({p,i})).filter(({i})=>activeCategory === "all" || productCategoryMap[i] === activeCategory).map(({p,i})=><article className="product-card" key={p[0]}><div className="product-image"><img src={`/products/${p[4]}`} alt={lang === "en" ? p[0] : p[1]}/><span>{String(i+1).padStart(2,"0")}</span><em>{lang === "en" ? productCategories.find(c=>c.id===productCategoryMap[i])?.en : productCategories.find(c=>c.id===productCategoryMap[i])?.hi}</em></div><div className="product-copy" contentEditable={edit} suppressContentEditableWarning><h3>{lang === "en" ? p[0] : p[1]}</h3><p>{lang === "en" ? p[2] : p[3]}</p><a href="#contact">{lang === "en" ? "Enquire" : "पूछताछ"} →</a></div></article>)}</div>
+      <div className="product-grid">{products.map((p,i)=>({p,i})).filter(({p})=>activeCategory === "all" || p.category === activeCategory).map(({p,i})=><article className="product-card" key={`${p.brand}-${p.nameEn}`}><div className="product-image catalogue-image"><img src={`/products-catalogue/${p.image}`} alt={`${p.brand} ${lang === "en" ? p.nameEn : p.nameHi}`}/><span>{String(i+1).padStart(2,"0")}</span><em>{lang === "en" ? productCategories.find(c=>c.id===p.category)?.en : productCategories.find(c=>c.id===p.category)?.hi}</em></div><div className="product-copy" contentEditable={edit} suppressContentEditableWarning><small className="product-brand">{p.brand} · {p.capacity}</small><h3>{lang === "en" ? p.nameEn : p.nameHi}</h3><p>{lang === "en" ? p.detailsEn : p.detailsHi}</p><a href="#contact">{lang === "en" ? "Enquire" : "पूछताछ"} →</a></div></article>)}</div>
     </section>
 
     <section className="services section" id="services"><div className="section-kicker light">WHAT WE DO · हमारी सेवाएँ</div><h2>{t.services}</h2><div className="service-grid">{[
