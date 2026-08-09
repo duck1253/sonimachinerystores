@@ -132,7 +132,6 @@
     hindiMode = document.body.classList.toggle("hindi-mode");
     document.documentElement.lang = hindiMode ? "hi" : "en";
     translateTextNodes(hindiMode);
-    document.querySelectorAll("body [lang=hi]").forEach(element => element.hidden = hindiMode);
     document.querySelectorAll("[data-product-card]").forEach(card => {
       card.querySelector(".product-copy h2,.product-copy h3").textContent = hindiMode ? card.dataset.productNameHi : card.dataset.productName;
       card.querySelector(".product-description").textContent = hindiMode ? card.dataset.descriptionHi : card.dataset.description;
