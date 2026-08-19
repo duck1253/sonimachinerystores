@@ -89,8 +89,9 @@
       currentProduct = hindiMode ? card.dataset.productNameHi : card.dataset.productName;
       ga("product_view", { product_name: currentProduct });
       const specifications = card.querySelector(".specs-table")?.outerHTML || "";
+      const detailImageClass = /submersible|सबमर्सिबल/i.test(currentProduct) ? ' class="vertical-submersible"' : "";
       detail.querySelector("[data-detail-category]").innerHTML = categorySwitcher(card.dataset.category);
-      detail.querySelector("[data-detail-content]").innerHTML = `<img src="${card.dataset.image}" alt="${currentProduct} ${card.dataset.capacity} - Soni Machinery Stores Kanpur"><div><button class="detail-cta" data-get-quote data-product-name="${currentProduct}">${hindiMode ? "हाँ! मुझे रुचि है" : "Yes! I am interested"}</button><p class="section-kicker">${card.dataset.capacity}</p><h2>${currentProduct}</h2><p>${hindiMode ? card.dataset.descriptionHi : card.dataset.description}</p>${specifications ? `<h3 class="specifications-heading">${hindiMode ? "तकनीकी विवरण" : "Specifications"}</h3>${specifications}` : ""}</div>`;
+      detail.querySelector("[data-detail-content]").innerHTML = `<img${detailImageClass} src="${card.dataset.image}" alt="${currentProduct} ${card.dataset.capacity} - Soni Machinery Stores Kanpur"><div><button class="detail-cta" data-get-quote data-product-name="${currentProduct}">${hindiMode ? "हाँ! मुझे रुचि है" : "Yes! I am interested"}</button><p class="section-kicker">${card.dataset.capacity}</p><h2>${currentProduct}</h2><p>${hindiMode ? card.dataset.descriptionHi : card.dataset.description}</p>${specifications ? `<h3 class="specifications-heading">${hindiMode ? "तकनीकी विवरण" : "Specifications"}</h3>${specifications}` : ""}</div>`;
       detail.showModal();
       return;
     }
