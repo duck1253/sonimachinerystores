@@ -5,6 +5,7 @@ const root = process.cwd();
 const out = path.resolve(process.argv[2] || "github-pages-dist");
 const baseUrl = "https://duck1253.github.io/sonimachinerystores";
 const basePath = "/sonimachinerystores";
+const assetVersion = "20260820-3";
 const phone = "+919336127037";
 const source = fs.readFileSync(path.join(root, "app/page.tsx"), "utf8");
 const extract = (start, end) => Function(`return ${source.slice(source.indexOf(start) + start.length, source.indexOf(end, source.indexOf(start)))}`)();
@@ -114,7 +115,7 @@ const productSchema = p => ({"@context":"https://schema.org","@type":"Product",n
 const breadcrumbs = (label, href) => ({"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:absolute("")},{"@type":"ListItem",position:2,name:label,item:absolute(href)}]});
 
 function head(title, description, canonical, schemas = []) {
-  return `<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${absolute(canonical)}"><link rel="icon" href="${url("favicon.svg")}"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="${url("site.css")}"><link rel="stylesheet" href="${url("seo.css")}"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0" defer></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-5PRCHYBZZG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-5PRCHYBZZG');</script>${[localBusiness,...schemas].map(x=>`<script type="application/ld+json">${JSON.stringify(x).replaceAll("<","\\u003c")}</script>`).join("")}</head>`;
+  return `<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${absolute(canonical)}"><link rel="icon" href="${url("favicon.svg")}"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="${url("site.css")}?v=${assetVersion}"><link rel="stylesheet" href="${url("seo.css")}?v=${assetVersion}"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0" defer></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-5PRCHYBZZG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-5PRCHYBZZG');</script>${[localBusiness,...schemas].map(x=>`<script type="application/ld+json">${JSON.stringify(x).replaceAll("<","\\u003c")}</script>`).join("")}</head>`;
 }
 function header() {
   const links=nav.map(([n,h])=>`<a href="${url(h)}">${n}</a>`).join("");
@@ -130,7 +131,7 @@ function quoteModal() {
   return `<dialog id="quote-modal" class="quote-modal"><button class="modal-close" type="button" aria-label="Close quote options">×</button><p class="section-kicker">GET A QUOTE</p><h2>Contact us about <span data-quote-name></span></h2><div class="quote-options"><a data-quote-call><i class="fa-solid fa-phone"></i><span>Call</span></a><a data-quote-whatsapp><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a><a data-quote-sms><i class="fa-solid fa-comment-sms"></i><span>SMS/Text</span></a><a data-quote-form><i class="fa-solid fa-envelope"></i><span>Enquiry form</span></a></div></dialog><dialog id="product-detail" class="product-detail"><button class="modal-close" type="button" aria-label="Close product detail">×</button><div data-detail-category></div><div data-detail-content></div></dialog>`;
 }
 function shell({title,description,canonical,schemas=[],body}) {
-  const page = `<!doctype html><html lang="en">${head(title,description,canonical,schemas)}<body><main>${header()}${body}${footer()}${quoteModal()}</main><script src="${url("site.js")}" defer></script></body></html>`;
+  const page = `<!doctype html><html lang="en">${head(title,description,canonical,schemas)}<body><main>${header()}${body}${footer()}${quoteModal()}</main><script src="${url("site.js")}?v=${assetVersion}" defer></script></body></html>`;
   return page.replace(/\s*<span lang="hi">[^<]*<\/span>/g, "");
 }
 const breadcrumbHtml = (label, href) => `<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="${url("index.html")}">Home</a><span>›</span><a href="${url(href)}" aria-current="page">${label}</a></nav>`;
