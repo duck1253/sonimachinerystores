@@ -70,7 +70,7 @@ const copy = {
     story: "Built in Kanpur. Trusted across generations.",
     storyp: "Soni Machinery Stores is a trusted machinery and equipment dealer in Kanpur, serving customers since 1974. For over 50 years, we have built our reputation on fair business practices, dependable service, genuine guidance and long-standing relationships with generations of customers.",
     products: "Machinery for every requirement", productSub: "Explore 40 products with catalogue-matched brands, capacities and photographs.",
-    services: "Service beyond the sale", dealers: "Authorised dealer of", gallery: "Life in motion", testimonials: "Relationships that last", faq: "Frequently asked questions", contact: "Let’s find the right machine for your work.",
+    services: "Service beyond the sale", dealers: "We are authorised dealers of", gallery: "Life in motion", testimonials: "Relationships that last", faq: "Frequently asked questions", contact: "Let’s find the right machine for your work.",
   },
   hi: {
     nav: ["होम", "विरासत", "उत्पाद", "सेवाएँ", "गैलरी", "संपर्क"],
@@ -81,7 +81,7 @@ const copy = {
     story: "कानपुर में शुरुआत। पीढ़ियों का विश्वास।",
     storyp: "लाटूश रोड से, सोनी मशीनरी स्टोर्स किसानों, ठेकेदारों, छोटे व्यवसायों और औद्योगिक ग्राहकों की सेवा एक स्थायी वादे के साथ करता आया है: जरूरत समझें, सही मशीन सुझाएँ और हर बिक्री के बाद साथ निभाएँ।",
     products: "हर जरूरत के लिए मशीनरी", productSub: "कैटलॉग से मिलाए गए ब्रांड, क्षमता और तस्वीरों सहित 40 उत्पाद देखें।",
-    services: "बिक्री के बाद भी सेवा", dealers: "अधिकृत विक्रेता", gallery: "खेत से प्रगति तक", testimonials: "रिश्ते जो चलते रहें", faq: "अक्सर पूछे जाने वाले सवाल", contact: "आपके काम के लिए सही मशीन चुनते हैं।",
+    services: "बिक्री के बाद भी सेवा", dealers: "हम इनके अधिकृत विक्रेता हैं", gallery: "खेत से प्रगति तक", testimonials: "रिश्ते जो चलते रहें", faq: "अक्सर पूछे जाने वाले सवाल", contact: "आपके काम के लिए सही मशीन चुनते हैं।",
   }
 };
 
@@ -183,7 +183,12 @@ export default function Home() {
       ["04","After-sales support","बिक्री के बाद सहायता","Dependable help and direction when your machine needs attention."],
     ].map(s=><article key={s[0]}><span>{s[0]}</span><h3>{lang === "en" ? s[1] : s[2]}</h3><p>{lang === "en" ? s[3] : "मशीन खरीदने से पहले और बाद तक सरल, व्यावहारिक और भरोसेमंद सहायता।"}</p></article>)}</div><aside className="kamdhenu-service"><img src={`${assetBase}/kamdhenu-logo.png`} alt="Kamdhenu authorised service and repair - Soni Machinery Stores Kanpur"/><div><small>{lang === "en" ? "AUTHORISED SERVICE & REPAIR" : "अधिकृत सेवा और मरम्मत"}</small><h3>{lang === "en" ? "Authorised Kamdhenu Service & Repair" : "कामधेनु की अधिकृत सेवा और मरम्मत"}</h3><p>{lang === "en" ? "Authorised assistance for Kamdhenu equipment, including service guidance, repairs and genuine support." : "कामधेनु उपकरणों के लिए अधिकृत सेवा मार्गदर्शन, मरम्मत और भरोसेमंद सहायता।"}</p></div></aside></section>
 
-    <section className="dealers section"><div className="section-kicker">TRUSTED BRANDS · विश्वसनीय ब्रांड</div><h2>{t.dealers}</h2><p>{lang === "en" ? "Brand logos and authorisations shown here are placeholders and ready to be replaced." : "यहाँ ब्रांड लोगो और अधिकृत विवरण अभी नमूने हैं और बदले जा सकते हैं।"}</p><div className="brand-row">{["HONDA","KIRLOSKAR","VST SHAKTI","KISANKRAFT","MAHINDRA","TEXMO"].map(b=><div key={b}>{b}<small>PLACEHOLDER</small></div>)}</div></section>
+    <section className="dealers section authorised-dealers"><div className="section-kicker">{lang === "en" ? "TRUSTED BRANDS" : "विश्वसनीय ब्रांड"}</div><h2>{t.dealers}</h2><div className="brand-row dealer-logo-row">{[
+      ["Everest & Sant Engineers", "everest-sant-engineers.png"],
+      ["Kamdhenu", "kamdhenu.png"],
+      ["SONEE-DX", "sonee-dx.png"],
+      ["Texmo", "texmo.png"],
+    ].map(([name,file])=><div key={name}><img loading="lazy" src={`${assetBase}/dealer-logos/${file}`} alt={`${name} authorised dealer logo - Soni Machinery Stores Kanpur`}/></div>)}</div></section>
 
     <section className="gallery section store-gallery-section" id="gallery"><div className="section-head"><div><div className="section-kicker">INSIDE SONI MACHINERY · सोनी मशीनरी की झलक</div><h2>{lang === "en" ? "A working legacy, captured over the years." : "वर्षों से चलती आ रही विरासत की झलक।"}</h2></div><p>{lang === "en" ? "Real moments from our Latouche Road store—our people, machinery, customers and the everyday work behind five decades of trust." : "हमारे लाटूश रोड स्टोर के वास्तविक पल—हमारे लोग, मशीनरी, ग्राहक और पाँच दशकों के विश्वास के पीछे का रोज़मर्रा का काम।"}</p></div><div className="store-masonry">{storeGallery.slice(0,showAllGallery ? storeGallery.length : 12).map((src,i)=><figure key={src}><img src={`${assetBase}${src}`} loading="lazy" alt={`${i < 6 ? "Soni Machinery Stores exterior and team" : "Machinery and equipment inside Soni Machinery Stores"} ${i+1}`}/><span>{String(i+1).padStart(2,"0")}</span></figure>)}</div><div className="gallery-action"><button className="btn" onClick={()=>setShowAllGallery(!showAllGallery)}>{showAllGallery ? (lang === "en" ? "Show less" : "कम दिखाएँ") : (lang === "en" ? `View all ${storeGallery.length} photographs` : `सभी ${storeGallery.length} तस्वीरें देखें`)}</button></div></section>
 
