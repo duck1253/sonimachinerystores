@@ -5,7 +5,7 @@ const root = process.cwd();
 const out = path.resolve(process.argv[2] || "github-pages-dist");
 const baseUrl = "https://duck1253.github.io/sonimachinerystores";
 const basePath = "/sonimachinerystores";
-const assetVersion = "20260820-4";
+const assetVersion = "20260820-5";
 const phone = "+919336127037";
 const source = fs.readFileSync(path.join(root, "app/page.tsx"), "utf8");
 const extract = (start, end) => Function(`return ${source.slice(source.indexOf(start) + start.length, source.indexOf(end, source.indexOf(start)))}`)();
@@ -135,7 +135,7 @@ function shell({title,description,canonical,schemas=[],body}) {
   page = page
     .replaceAll('class="product-card"', 'class="product-card" style="box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden;contain:layout paint"')
     .replaceAll('class="product-image catalogue-image"', 'class="product-image catalogue-image" style="box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden;contain:paint;clip-path:inset(0)"')
-    .replace(/(<div class="product-image catalogue-image"[^>]*><img)(?=[ >])/g, '$1 style="display:block;box-sizing:border-box;width:100%;max-width:100%;min-width:0;height:100%;object-fit:contain"');
+    .replace(/(<div class="product-image catalogue-image"[^>]*><img)(?=[ >])/g, '$1 style="display:block;box-sizing:border-box;width:auto;max-width:100%;min-width:0;height:auto;max-height:100%;object-fit:contain"');
   return page.replace(/\s*<span lang="hi">[^<]*<\/span>/g, "");
 }
 const breadcrumbHtml = (label, href) => `<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="${url("index.html")}">Home</a><span>›</span><a href="${url(href)}" aria-current="page">${label}</a></nav>`;
