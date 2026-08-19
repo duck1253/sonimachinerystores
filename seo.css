@@ -43,3 +43,11 @@
 .product-card .get-quote{box-sizing:border-box;min-height:47px;margin:0 0 9px}
 .product-card .product-enquiry{min-height:30px}
 @media(max-width:650px){.product-copy h2,.product-copy h3{height:4.1em;min-height:4.1em}.product-copy .product-description{height:6.6em;min-height:6.6em!important}.product-specs{min-height:76px}.product-specs summary{min-height:74px}.product-actions{min-height:82px}}
+
+/* Submersible orientation and authorised service identity */
+[data-product-name*="Submersible"] .product-image img{transform:rotate(-90deg) scale(.88)}
+.product-detail .vertical-submersible{transform:rotate(-90deg) scale(.82)}
+.kamdhenu-service{display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:42px;align-items:center;margin-top:58px;padding:34px;background:#fff;color:var(--ink);border-left:5px solid #e31b18}
+.kamdhenu-service img{width:100%;max-width:320px;height:auto;object-fit:contain}
+.kamdhenu-service small{color:var(--green);font-size:10px;font-weight:800;letter-spacing:.16em}.kamdhenu-service h3,.kamdhenu-service h2{margin:10px 0 8px;font-family:'DM Sans','Noto Sans Devanagari',sans-serif;font-size:26px}.kamdhenu-service p{margin:0;color:var(--muted);line-height:1.65}
+@media(max-width:700px){.kamdhenu-service{grid-template-columns:1fr;gap:22px}.kamdhenu-service img{max-width:240px}}
