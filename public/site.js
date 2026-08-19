@@ -88,8 +88,9 @@
     if (card && !event.target.closest("a,button")) {
       currentProduct = hindiMode ? card.dataset.productNameHi : card.dataset.productName;
       ga("product_view", { product_name: currentProduct });
+      const specifications = card.querySelector(".specs-table")?.outerHTML || "";
       detail.querySelector("[data-detail-category]").innerHTML = categorySwitcher(card.dataset.category);
-      detail.querySelector("[data-detail-content]").innerHTML = `<img src="${card.dataset.image}" alt="${currentProduct} ${card.dataset.capacity} - Soni Machinery Stores Kanpur"><div><button class="detail-cta" data-get-quote data-product-name="${currentProduct}">${hindiMode ? "हाँ! मुझे रुचि है" : "Yes! I am interested"}</button><p class="section-kicker">${card.dataset.capacity}</p><h2>${currentProduct}</h2><p>${hindiMode ? card.dataset.descriptionHi : card.dataset.description}</p>${card.dataset.pairing ? `<p class="product-pairing"><b>${hindiMode ? "अक्सर साथ उपयोग किया जाता है:" : "Often used together:"}</b> ${hindiMode ? card.dataset.pairingHi : card.dataset.pairing}</p>` : ""}</div>`;
+      detail.querySelector("[data-detail-content]").innerHTML = `<img src="${card.dataset.image}" alt="${currentProduct} ${card.dataset.capacity} - Soni Machinery Stores Kanpur"><div><button class="detail-cta" data-get-quote data-product-name="${currentProduct}">${hindiMode ? "हाँ! मुझे रुचि है" : "Yes! I am interested"}</button><p class="section-kicker">${card.dataset.capacity}</p><h2>${currentProduct}</h2><p>${hindiMode ? card.dataset.descriptionHi : card.dataset.description}</p>${specifications ? `<h3 class="specifications-heading">${hindiMode ? "तकनीकी विवरण" : "Specifications"}</h3>${specifications}` : ""}${card.dataset.pairing ? `<p class="product-pairing"><b>${hindiMode ? "अक्सर साथ उपयोग किया जाता है:" : "Often used together:"}</b> ${hindiMode ? card.dataset.pairingHi : card.dataset.pairing}</p>` : ""}</div>`;
       detail.showModal();
       return;
     }
@@ -183,6 +184,9 @@
       card.querySelector(".get-quote").textContent = hindiMode ? "कीमत पूछें" : "Get Quote";
       card.querySelector(".product-enquiry").textContent = hindiMode ? `${card.dataset.productNameHi} के बारे में पूछताछ करें` : `Enquire about this ${card.dataset.productName.split(" ").slice(1).join(" ").toLowerCase()}`;
       card.querySelector(".product-image em").textContent = hindiMode ? categoryInfo[card.dataset.category][1] : categoryInfo[card.dataset.category][0];
+      const specsSummary = card.querySelector(".product-specs summary");
+      if (specsSummary) specsSummary.childNodes[0].nodeValue = hindiMode ? "तकनीकी विवरण देखें " : "View specifications ";
+      card.querySelectorAll("[data-label-en]").forEach(label => { label.textContent = hindiMode ? label.dataset.labelHi : label.dataset.labelEn; });
       const pairing = card.querySelector(".product-pairing");
       if (pairing) pairing.innerHTML = `<b>${hindiMode ? "अक्सर साथ उपयोग किया जाता है:" : "Often used together:"}</b> ${hindiMode ? card.dataset.pairingHi : card.dataset.pairing}`;
     });
