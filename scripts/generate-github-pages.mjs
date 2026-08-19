@@ -5,7 +5,7 @@ const root = process.cwd();
 const out = path.resolve(process.argv[2] || "github-pages-dist");
 const baseUrl = "https://duck1253.github.io/sonimachinerystores";
 const basePath = "/sonimachinerystores";
-const assetVersion = "20260820-9";
+const assetVersion = "20260820-10";
 const phone = "+919336127037";
 const source = fs.readFileSync(path.join(root, "app/page.tsx"), "utf8");
 const extract = (start, end) => Function(`return ${source.slice(source.indexOf(start) + start.length, source.indexOf(end, source.indexOf(start)))}`)();
