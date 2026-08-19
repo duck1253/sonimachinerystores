@@ -5,7 +5,7 @@ const root = process.cwd();
 const out = path.resolve(process.argv[2] || "github-pages-dist");
 const baseUrl = "https://duck1253.github.io/sonimachinerystores";
 const basePath = "/sonimachinerystores";
-const assetVersion = "20260820-3";
+const assetVersion = "20260820-4";
 const phone = "+919336127037";
 const source = fs.readFileSync(path.join(root, "app/page.tsx"), "utf8");
 const extract = (start, end) => Function(`return ${source.slice(source.indexOf(start) + start.length, source.indexOf(end, source.indexOf(start)))}`)();
@@ -131,7 +131,11 @@ function quoteModal() {
   return `<dialog id="quote-modal" class="quote-modal"><button class="modal-close" type="button" aria-label="Close quote options">×</button><p class="section-kicker">GET A QUOTE</p><h2>Contact us about <span data-quote-name></span></h2><div class="quote-options"><a data-quote-call><i class="fa-solid fa-phone"></i><span>Call</span></a><a data-quote-whatsapp><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a><a data-quote-sms><i class="fa-solid fa-comment-sms"></i><span>SMS/Text</span></a><a data-quote-form><i class="fa-solid fa-envelope"></i><span>Enquiry form</span></a></div></dialog><dialog id="product-detail" class="product-detail"><button class="modal-close" type="button" aria-label="Close product detail">×</button><div data-detail-category></div><div data-detail-content></div></dialog>`;
 }
 function shell({title,description,canonical,schemas=[],body}) {
-  const page = `<!doctype html><html lang="en">${head(title,description,canonical,schemas)}<body><main>${header()}${body}${footer()}${quoteModal()}</main><script src="${url("site.js")}?v=${assetVersion}" defer></script></body></html>`;
+  let page = `<!doctype html><html lang="en">${head(title,description,canonical,schemas)}<body><main>${header()}${body}${footer()}${quoteModal()}</main><script src="${url("site.js")}?v=${assetVersion}" defer></script></body></html>`;
+  page = page
+    .replaceAll('class="product-card"', 'class="product-card" style="box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden;contain:layout paint"')
+    .replaceAll('class="product-image catalogue-image"', 'class="product-image catalogue-image" style="box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden;contain:paint;clip-path:inset(0)"')
+    .replace(/(<div class="product-image catalogue-image"[^>]*><img)(?=[ >])/g, '$1 style="display:block;box-sizing:border-box;width:100%;max-width:100%;min-width:0;height:100%;object-fit:contain"');
   return page.replace(/\s*<span lang="hi">[^<]*<\/span>/g, "");
 }
 const breadcrumbHtml = (label, href) => `<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="${url("index.html")}">Home</a><span>›</span><a href="${url(href)}" aria-current="page">${label}</a></nav>`;
