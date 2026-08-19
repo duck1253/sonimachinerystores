@@ -23,6 +23,20 @@
     "Machinery Products in Kanpur":"कानपुर में मशीनरी उत्पाद","Search the machinery catalogue":"मशीनरी सूची खोजें","Explore catalogue-matched products, capacities and photographs from Soni Machinery Stores.":"सोनी मशीनरी स्टोर्स के कैटलॉग से मिलाए गए उत्पाद, क्षमता और तस्वीरें देखें।","Dairy Equipment in Kanpur":"कानपुर में डेयरी उपकरण","Water Pumps in Kanpur":"कानपुर में वॉटर पंप","Electric Motors in Kanpur":"कानपुर में इलेक्ट्रिक मोटर","Agricultural Machinery in Kanpur":"कानपुर में कृषि मशीनरी","Cleaning Equipment in Kanpur":"कानपुर में सफाई उपकरण",
     "Contact Soni Machinery Stores in Kanpur":"कानपुर में सोनी मशीनरी स्टोर्स से संपर्क करें","Call, WhatsApp or send your enquiry for machinery prices, availability and guidance.":"मशीनरी की कीमत, उपलब्धता और मार्गदर्शन के लिए कॉल, व्हाट्सऐप या पूछताछ भेजें।","Tell us what machine you need":"हमें बताएं आपको कौन-सी मशीन चाहिए","Name":"नाम","Phone":"फोन","Product or requirement":"उत्पाद या आवश्यकता","Message":"संदेश","Send enquiry":"पूछताछ भेजें","Machinery Store Gallery in Kanpur":"कानपुर में मशीनरी स्टोर गैलरी","Contact us about":"इसके बारे में संपर्क करें","Call":"कॉल","SMS/Text":"एसएमएस/टेक्स्ट","Enquiry form":"पूछताछ फॉर्म","Yes! I am interested":"हाँ! मुझे रुचि है","Get Quote":"कीमत पूछें"
   }));
+  Object.entries({
+    "All":"सभी","View all 32 products":"सभी 32 उत्पाद देखें","CUSTOMER VOICES":"ग्राहकों की बात","Customer Voices":"ग्राहकों की आवाज़",
+    "Reserved for verified customer feedback. Placeholder cards will be replaced when approved testimonials are supplied.":"यह स्थान सत्यापित ग्राहक अनुभवों के लिए सुरक्षित है। स्वीकृत टिप्पणियाँ मिलने पर इन्हें बदला जाएगा।",
+    "Is financing or EMI available?":"क्या फाइनेंस या ईएमआई उपलब्ध है?","Financing and EMI availability can vary by product and finance provider. Please call us before purchase so we can confirm the current options.":"फाइनेंस और ईएमआई की उपलब्धता उत्पाद और वित्त प्रदाता के अनुसार बदल सकती है। वर्तमान विकल्प की पुष्टि के लिए खरीद से पहले हमें कॉल करें।",
+    "What warranty comes with a machine?":"मशीन के साथ क्या वारंटी मिलती है?","Warranty terms are set by the product manufacturer and can differ by model. We will explain the applicable warranty before you buy.":"वारंटी की शर्तें निर्माता तय करता है और मॉडल के अनुसार अलग हो सकती हैं। खरीद से पहले लागू वारंटी समझा दी जाएगी।",
+    "Can I check stock before visiting the store?":"क्या दुकान आने से पहले स्टॉक जांच सकता हूँ?","Yes. Call or WhatsApp us with the product name and model so we can confirm current availability before you travel.":"हाँ। आने से पहले उत्पाद का नाम और मॉडल भेजकर कॉल या व्हाट्सऐप पर उपलब्धता की पुष्टि करें।",
+    "Is there a minimum order quantity?":"क्या न्यूनतम ऑर्डर मात्रा है?","Most enquiries are handled for individual machines, but order conditions may vary for parts or special items. Please confirm the required quantity with us.":"अधिकतर पूछताछ एक मशीन के लिए होती है, लेकिन पार्ट्स या विशेष वस्तुओं की शर्तें अलग हो सकती हैं। मात्रा की पुष्टि हमसे करें।",
+    "How long does delivery take within Kanpur?":"कानपुर के अंदर डिलीवरी में कितना समय लगता है?","Delivery timing depends on stock, product size and the delivery location. Contact us with the product and address for a current estimate.":"डिलीवरी समय स्टॉक, उत्पाद के आकार और स्थान पर निर्भर है। वर्तमान अनुमान के लिए उत्पाद और पता भेजें।",
+    "How long does delivery take outside Kanpur?":"कानपुर के बाहर डिलीवरी में कितना समय लगता है?","Outside-Kanpur delivery depends on the destination, transporter and machine. We will confirm the expected timeline before dispatch.":"कानपुर के बाहर डिलीवरी गंतव्य, ट्रांसपोर्टर और मशीन पर निर्भर है। भेजने से पहले अनुमानित समय बताया जाएगा।",
+    "How can I get a product demonstration?":"उत्पाद का डेमो कैसे मिलेगा?","Demonstrations and operating guidance can be arranged for selected products. Call ahead with the model name so we can confirm arrangements.":"चुनिंदा उत्पादों के लिए डेमो और संचालन मार्गदर्शन की व्यवस्था हो सकती है। मॉडल नाम के साथ पहले कॉल करें।",
+    "What is the return or exchange policy?":"रिटर्न या एक्सचेंज नीति क्या है?","Return or exchange eligibility depends on the product condition, manufacturer policy and reason for the request. Please confirm the terms before purchase.":"रिटर्न या एक्सचेंज उत्पाद की स्थिति, निर्माता की नीति और कारण पर निर्भर है। खरीद से पहले शर्तें पूछ लें।",
+    "How quickly can spare parts be arranged?":"स्पेयर पार्ट्स कितनी जल्दी मिल सकते हैं?","Availability timelines depend on the machine, part number and supplier stock. Share the model and required part so we can check it accurately.":"समय मशीन, पार्ट नंबर और सप्लायर स्टॉक पर निर्भर है। सही जांच के लिए मॉडल और आवश्यक पार्ट बताएं।",
+    "How quickly do you respond to after-sales requests?":"बिक्री के बाद सहायता की पूछताछ का जवाब कितनी जल्दी मिलता है?","We usually reply to calls and WhatsApp enquiries within 2 hours during business hours. Resolution time depends on the machine and support required.":"व्यावसायिक समय में कॉल और व्हाट्सऐप का जवाब सामान्यतः 2 घंटे में दिया जाता है। समाधान का समय मशीन और आवश्यक सहायता पर निर्भर है।"
+  }).forEach(([english,hindi]) => translations.set(english,hindi));
   const categoryInfo = {
     dairy:["Dairy Equipment","डेयरी उपकरण","dairy-equipment.html","image1.png"],
     pumps:["Water Pumps","वॉटर पंप","water-pumps.html","image16.png"],
@@ -75,7 +89,7 @@
       currentProduct = hindiMode ? card.dataset.productNameHi : card.dataset.productName;
       ga("product_view", { product_name: currentProduct });
       detail.querySelector("[data-detail-category]").innerHTML = categorySwitcher(card.dataset.category);
-      detail.querySelector("[data-detail-content]").innerHTML = `<img src="${card.dataset.image}" alt="${currentProduct} ${card.dataset.capacity} - Soni Machinery Stores Kanpur"><div><button class="detail-cta" data-get-quote data-product-name="${currentProduct}">${hindiMode ? "हाँ! मुझे रुचि है" : "Yes! I am interested"}</button><p class="section-kicker">${card.dataset.capacity}</p><h2>${currentProduct}</h2><p>${hindiMode ? card.dataset.descriptionHi : card.dataset.description}</p></div>`;
+      detail.querySelector("[data-detail-content]").innerHTML = `<img src="${card.dataset.image}" alt="${currentProduct} ${card.dataset.capacity} - Soni Machinery Stores Kanpur"><div><button class="detail-cta" data-get-quote data-product-name="${currentProduct}">${hindiMode ? "हाँ! मुझे रुचि है" : "Yes! I am interested"}</button><p class="section-kicker">${card.dataset.capacity}</p><h2>${currentProduct}</h2><p>${hindiMode ? card.dataset.descriptionHi : card.dataset.description}</p>${card.dataset.pairing ? `<p class="product-pairing"><b>${hindiMode ? "अक्सर साथ उपयोग किया जाता है:" : "Often used together:"}</b> ${hindiMode ? card.dataset.pairingHi : card.dataset.pairing}</p>` : ""}</div>`;
       detail.showModal();
       return;
     }
@@ -90,21 +104,52 @@
     if (event.key === "Enter" && event.target.matches("[data-product-card]")) event.target.click();
   });
 
+  let selectedCategory = "all";
+  const cards = [...document.querySelectorAll("[data-product-card]")];
+  const editDistance = (a,b) => {
+    const row = Array.from({length:b.length+1},(_,i)=>i);
+    for (let i=1;i<=a.length;i++) {
+      let previous=row[0]; row[0]=i;
+      for (let j=1;j<=b.length;j++) { const saved=row[j]; row[j]=Math.min(row[j]+1,row[j-1]+1,previous+(a[i-1]===b[j-1]?0:1)); previous=saved; }
+    }
+    return row[b.length];
+  };
+  const fuzzyTextMatch = (query,text) => {
+    const clean = value => value.toLowerCase().normalize("NFKD").replace(/[^a-z0-9\u0900-\u097f]+/g," ").trim();
+    const q=clean(query), hay=clean(text); if (!q || hay.includes(q)) return true;
+    const hayWords=hay.split(" "), stop=new Set(["ka","ki","ke","the","for","and"]);
+    return q.split(" ").filter(word=>word.length>1&&!stop.has(word)).every(word => hayWords.some(candidate => candidate.includes(word) || word.includes(candidate) || editDistance(word,candidate) <= (word.length>=7?2:1)));
+  };
+  const fuse = window.Fuse && cards.length ? new window.Fuse(cards.map(card => ({ card, text: card.dataset.search })), { keys:["text"], threshold:.38, ignoreLocation:true, minMatchCharLength:2 }) : null;
+  const applyCatalogueFilters = () => {
+    const search = document.querySelector("#catalogue-search");
+    const query = search?.value.trim() || "";
+    const fuzzyMatches = query && fuse ? new Set(fuse.search(query).map(result => result.item.card)) : null;
+    let count = 0;
+    cards.forEach(card => {
+      const categoryMatch = selectedCategory === "all" || card.dataset.category === selectedCategory;
+      const searchMatch = !query || (fuzzyMatches ? fuzzyMatches.has(card) : fuzzyTextMatch(query,card.dataset.search));
+      card.hidden = !(categoryMatch && searchMatch);
+      if (!card.hidden) count++;
+    });
+    const status = document.querySelector(".search-status");
+    if (status) status.textContent = hindiMode ? `${count} उत्पाद दिखाए जा रहे हैं` : `Showing ${count} product${count === 1 ? "" : "s"}`;
+  };
+  document.querySelectorAll("[data-category-filter]").forEach(button => button.addEventListener("click", () => {
+    selectedCategory = button.dataset.categoryFilter;
+    document.querySelectorAll("[data-category-filter]").forEach(item => {
+      const active = item === button;
+      item.classList.toggle("active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+    applyCatalogueFilters();
+  }));
+
   const search = document.querySelector("#catalogue-search");
   if (search) {
     search.value = new URLSearchParams(location.search).get("q") || "";
-    const filter = () => {
-      const query = search.value.trim().toLowerCase();
-      let count = 0;
-      document.querySelectorAll("[data-product-card]").forEach(card => {
-        card.hidden = Boolean(query && !card.dataset.search.includes(query));
-        if (!card.hidden) count++;
-      });
-      document.querySelector(".search-status").textContent = `Showing ${count} product${count === 1 ? "" : "s"}`;
-      if (query) ga("catalogue_search", { search_term: query });
-    };
-    search.addEventListener("input", filter);
-    filter();
+    search.addEventListener("input", () => { applyCatalogueFilters(); if (search.value.trim()) ga("catalogue_search", { search_term: search.value.trim() }); });
+    applyCatalogueFilters();
   }
 
   const enquiryProduct = document.querySelector("[data-enquiry-product]");
@@ -127,8 +172,8 @@
     setInterval(() => show((slide + 1) % images.length), 5000);
   }
 
-  const languageButton = document.querySelector("[data-language-toggle]");
-  if (languageButton) languageButton.addEventListener("click", () => {
+  const languageButtons = [...document.querySelectorAll("[data-language-toggle]")];
+  const setLanguage = () => {
     hindiMode = document.body.classList.toggle("hindi-mode");
     document.documentElement.lang = hindiMode ? "hi" : "en";
     translateTextNodes(hindiMode);
@@ -138,9 +183,30 @@
       card.querySelector(".get-quote").textContent = hindiMode ? "कीमत पूछें" : "Get Quote";
       card.querySelector(".product-enquiry").textContent = hindiMode ? `${card.dataset.productNameHi} के बारे में पूछताछ करें` : `Enquire about this ${card.dataset.productName.split(" ").slice(1).join(" ").toLowerCase()}`;
       card.querySelector(".product-image em").textContent = hindiMode ? categoryInfo[card.dataset.category][1] : categoryInfo[card.dataset.category][0];
+      const pairing = card.querySelector(".product-pairing");
+      if (pairing) pairing.innerHTML = `<b>${hindiMode ? "अक्सर साथ उपयोग किया जाता है:" : "Often used together:"}</b> ${hindiMode ? card.dataset.pairingHi : card.dataset.pairing}`;
     });
-    languageButton.textContent = hindiMode ? "English" : "हिंदी";
+    document.querySelectorAll("[data-en][data-hi]").forEach(el => { el.textContent = hindiMode ? el.dataset.hi : el.dataset.en; });
+    languageButtons.forEach(button => { button.textContent = hindiMode ? "English" : "हिंदी"; });
+    applyCatalogueFilters();
+  };
+  languageButtons.forEach(button => button.addEventListener("click", setLanguage));
+
+  const menu = document.querySelector("[data-mobile-menu]");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const closeMenu = () => {
+    document.body.classList.remove("menu-open");
+    menu?.setAttribute("aria-hidden", "true");
+    menuToggle?.setAttribute("aria-expanded", "false");
+  };
+  menuToggle?.addEventListener("click", () => {
+    document.body.classList.add("menu-open");
+    menu?.setAttribute("aria-hidden", "false");
+    menuToggle.setAttribute("aria-expanded", "true");
   });
+  document.querySelector("[data-menu-close]")?.addEventListener("click", closeMenu);
+  document.querySelector("[data-menu-backdrop]")?.addEventListener("click", closeMenu);
+  menu?.querySelectorAll("a,[data-language-toggle]").forEach(item => item.addEventListener("click", () => { if (item.matches("a")) closeMenu(); }));
 
   let maxDepth = 0;
   addEventListener("scroll", () => {
