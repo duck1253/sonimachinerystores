@@ -90,7 +90,7 @@
       ga("product_view", { product_name: currentProduct });
       const specifications = card.querySelector(".specs-table")?.outerHTML || "";
       detail.querySelector("[data-detail-category]").innerHTML = categorySwitcher(card.dataset.category);
-      detail.querySelector("[data-detail-content]").innerHTML = `<img src="${card.dataset.image}" alt="${currentProduct} ${card.dataset.capacity} - Soni Machinery Stores Kanpur"><div><button class="detail-cta" data-get-quote data-product-name="${currentProduct}">${hindiMode ? "हाँ! मुझे रुचि है" : "Yes! I am interested"}</button><p class="section-kicker">${card.dataset.capacity}</p><h2>${currentProduct}</h2><p>${hindiMode ? card.dataset.descriptionHi : card.dataset.description}</p>${specifications ? `<h3 class="specifications-heading">${hindiMode ? "तकनीकी विवरण" : "Specifications"}</h3>${specifications}` : ""}${card.dataset.pairing ? `<p class="product-pairing"><b>${hindiMode ? "अक्सर साथ उपयोग किया जाता है:" : "Often used together:"}</b> ${hindiMode ? card.dataset.pairingHi : card.dataset.pairing}</p>` : ""}</div>`;
+      detail.querySelector("[data-detail-content]").innerHTML = `<img src="${card.dataset.image}" alt="${currentProduct} ${card.dataset.capacity} - Soni Machinery Stores Kanpur"><div><button class="detail-cta" data-get-quote data-product-name="${currentProduct}">${hindiMode ? "हाँ! मुझे रुचि है" : "Yes! I am interested"}</button><p class="section-kicker">${card.dataset.capacity}</p><h2>${currentProduct}</h2><p>${hindiMode ? card.dataset.descriptionHi : card.dataset.description}</p>${specifications ? `<h3 class="specifications-heading">${hindiMode ? "तकनीकी विवरण" : "Specifications"}</h3>${specifications}` : ""}</div>`;
       detail.showModal();
       return;
     }
@@ -187,8 +187,6 @@
       const specsSummary = card.querySelector(".product-specs summary");
       if (specsSummary) specsSummary.childNodes[0].nodeValue = hindiMode ? "तकनीकी विवरण देखें " : "View specifications ";
       card.querySelectorAll("[data-label-en]").forEach(label => { label.textContent = hindiMode ? label.dataset.labelHi : label.dataset.labelEn; });
-      const pairing = card.querySelector(".product-pairing");
-      if (pairing) pairing.innerHTML = `<b>${hindiMode ? "अक्सर साथ उपयोग किया जाता है:" : "Often used together:"}</b> ${hindiMode ? card.dataset.pairingHi : card.dataset.pairing}`;
     });
     document.querySelectorAll("[data-en][data-hi]").forEach(el => { el.textContent = hindiMode ? el.dataset.hi : el.dataset.en; });
     languageButtons.forEach(button => { button.textContent = hindiMode ? "English" : "हिंदी"; });
