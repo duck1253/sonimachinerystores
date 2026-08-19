@@ -125,11 +125,12 @@
   const applyCatalogueFilters = () => {
     const search = document.querySelector("#catalogue-search");
     const query = search?.value.trim() || "";
+    const literalMatches = query ? new Set(cards.filter(card => card.dataset.search.includes(query.toLowerCase())).map(card => card)) : null;
     const fuzzyMatches = query && fuse ? new Set(fuse.search(query).map(result => result.item.card)) : null;
     let count = 0;
     cards.forEach(card => {
       const categoryMatch = selectedCategory === "all" || card.dataset.category === selectedCategory;
-      const searchMatch = !query || (fuzzyMatches ? fuzzyMatches.has(card) : fuzzyTextMatch(query,card.dataset.search));
+      const searchMatch = !query || (literalMatches?.size ? literalMatches.has(card) : fuzzyMatches ? fuzzyMatches.has(card) : fuzzyTextMatch(query,card.dataset.search));
       card.hidden = !(categoryMatch && searchMatch);
       if (!card.hidden) count++;
     });
