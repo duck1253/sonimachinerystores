@@ -42,13 +42,22 @@ const products: Product[] = [
   {category:"pumps",brand:"Texmo",nameEn:"4-inch Submersible",nameHi:"4-इंच सबमर्सिबल",capacity:"4-inch borewell series",detailsEn:"For domestic supply, irrigation, livestock and buildings.",detailsHi:"घरेलू आपूर्ति, सिंचाई, पशुपालन और भवनों के लिए।",image:"image23-rotated.png"},
   {category:"pumps",brand:"Texmo",nameEn:"6-inch Submersible",nameHi:"6-इंच सबमर्सिबल",capacity:"6-inch borewell series",detailsEn:"For farm and commercial borewells.",detailsHi:"कृषि और व्यावसायिक बोरवेल के लिए।",image:"image24-rotated.png"},
   {category:"pumps",brand:"Texmo",nameEn:"7-inch Submersible",nameHi:"7-इंच सबमर्सिबल",capacity:"7-inch borewell series",detailsEn:"For high-volume irrigation, community and industrial water supply.",detailsHi:"उच्च क्षमता वाली सिंचाई, सामुदायिक और औद्योगिक जल आपूर्ति के लिए।",image:"image25-rotated.png"},
-  {category:"agriculture",brand:"Balwaan",nameEn:"Power Weeder",nameHi:"पावर वीडर",capacity:"BP-650 · 7 HP",detailsEn:"For efficient weeding and soil preparation.",detailsHi:"कुशल निराई और मिट्टी तैयार करने के लिए।",image:"image26.png"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Power Weeder",nameHi:"पावर वीडर",capacity:"BP-650 · 7 HP",detailsEn:"For efficient weeding and soil preparation.",detailsHi:"कुशल निराई और मिट्टी तैयार करने के लिए।",image:"power-weeder.webp"},
   {category:"agriculture",brand:"Balwaan",nameEn:"Mini Power Tiller",nameHi:"मिनी पावर टिलर",capacity:"BW-25 · 63 cc",detailsEn:"Compact tiller for kitchen gardens, beds and narrow rows.",detailsHi:"किचन गार्डन, क्यारियों और संकरी कतारों के लिए कॉम्पैक्ट टिलर।",image:"image27.png"},
-  {category:"agriculture",brand:"Balwaan",nameEn:"Earth Auger",nameHi:"अर्थ ऑगर",capacity:"BE-52 · 52 cc",detailsEn:"For plantation, fencing and post holes.",detailsHi:"पौधारोपण, बाड़ और खंभों के गड्ढों के लिए।",image:"image28.png"},
-  {category:"agriculture",brand:"Balwaan",nameEn:"Chainsaw",nameHi:"चेनसॉ",capacity:"CS-520 · 52 cc · 18 inch",detailsEn:"For firewood, pruning and garden maintenance.",detailsHi:"जलाऊ लकड़ी, छंटाई और बगीचे के रखरखाव के लिए।",image:"image29.png"},
-  {category:"agriculture",brand:"Balwaan",nameEn:"Brush Cutter",nameHi:"ब्रश कटर",capacity:"BX-35 · 35 cc",detailsEn:"For grass, brush, pruning and light tilling.",detailsHi:"घास, झाड़ियों, छंटाई और हल्की जुताई के लिए।",image:"image30.png"},
-  {category:"agriculture",brand:"Balwaan",nameEn:"Petrol Pump Set",nameHi:"पेट्रोल पंप सेट",capacity:"WP-22R · 7 HP",detailsEn:"For agriculture, construction and high-volume water transfer.",detailsHi:"कृषि, निर्माण और अधिक मात्रा में जल स्थानांतरण के लिए।",image:"image31.png"},
+  {category:"agriculture",brand:"Multiple Brands",nameEn:"Power Tiller",nameHi:"पावर टिलर",capacity:"Models available",detailsEn:"For tilling, bed preparation and soil cultivation in farms.",detailsHi:"खेतों में जुताई, क्यारी तैयार करने और मिट्टी की खेती के लिए।",image:"power-tiller.webp"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Earth Auger",nameHi:"अर्थ ऑगर",capacity:"BE-52 · 52 cc",detailsEn:"For plantation, fencing and post holes.",detailsHi:"पौधारोपण, बाड़ और खंभों के गड्ढों के लिए।",image:"earth-auger.webp"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Chainsaw",nameHi:"चेनसॉ",capacity:"CS-520 · 52 cc · 18 inch",detailsEn:"For firewood, pruning and garden maintenance.",detailsHi:"जलाऊ लकड़ी, छंटाई और बगीचे के रखरखाव के लिए।",image:"chainsaw.webp"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Brush Cutter",nameHi:"ब्रश कटर",capacity:"BX-35 · 35 cc",detailsEn:"For grass, brush, pruning and light tilling.",detailsHi:"घास, झाड़ियों, छंटाई और हल्की जुताई के लिए।",image:"brush-cutter.webp"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Petrol Pump Set",nameHi:"पेट्रोल पंप सेट",capacity:"WP-22R · 7 HP",detailsEn:"For agriculture, construction and high-volume water transfer.",detailsHi:"कृषि, निर्माण और अधिक मात्रा में जल स्थानांतरण के लिए।",image:"petrol-pump-set.webp"},
   {category:"agriculture",brand:"Balwaan",nameEn:"Seeder",nameHi:"सीडर",capacity:"S-12 · 12 teeth",detailsEn:"Manual multi-crop seed placement for fields and gardens.",detailsHi:"खेत और बगीचों में अनेक फसलों की बुवाई के लिए मैनुअल सीडर।",image:"image32.png"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Battery Sprayer",nameHi:"बैटरी स्प्रेयर",capacity:"Models available",detailsEn:"For spraying crop-protection solutions in fields and gardens.",detailsHi:"खेतों और बगीचों में फसल-सुरक्षा घोल का छिड़काव करने के लिए।",image:"battery-sprayer.webp"},
+  {category:"agriculture",brand:"Multiple Brands",nameEn:"Chaff Cutter",nameHi:"चारा कटर",capacity:"Models available",detailsEn:"For cutting fodder into manageable lengths for livestock feeding.",detailsHi:"पशुओं के चारे को सुविधाजनक लंबाई में काटने के लिए।",image:"chaff-cutter.webp"},
+  {category:"agriculture",brand:"Multiple Brands",nameEn:"Fogging Machine",nameHi:"फॉगिंग मशीन",capacity:"Models available",detailsEn:"For fine-mist application in farms, sheds and outdoor areas.",detailsHi:"खेतों, शेड और खुले क्षेत्रों में महीन धुंध के छिड़काव के लिए।",image:"fogging-machine.webp"},
+  {category:"agriculture",brand:"Multiple Brands",nameEn:"Grass Cutter",nameHi:"ग्रास कटर",capacity:"Models available",detailsEn:"Wheeled cutter for maintaining lawns, grounds and open green areas.",detailsHi:"लॉन, मैदान और खुले हरे क्षेत्रों के रखरखाव के लिए पहियों वाला कटर।",image:"grass-cutter.webp"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"HTP Sprayer",nameHi:"एचटीपी स्प्रेयर",capacity:"Models available",detailsEn:"High-pressure spraying setup for orchards, fields and larger agricultural areas.",detailsHi:"बागों, खेतों और बड़े कृषि क्षेत्रों के लिए उच्च-दबाव छिड़काव सेटअप।",image:"htp-sprayer.webp"},
+  {category:"agriculture",brand:"Multiple Brands",nameEn:"Manual Weeder",nameHi:"मैनुअल वीडर",capacity:"Models available",detailsEn:"Hand-operated tool for row weeding and loosening surface soil.",detailsHi:"कतारों की निराई और ऊपरी मिट्टी को ढीला करने के लिए हाथ से चलने वाला उपकरण।",image:"manual-weeder.webp"},
+  {category:"agriculture",brand:"Multiple Brands",nameEn:"Power Reaper",nameHi:"पावर रीपर",capacity:"Models available",detailsEn:"Powered harvesting machine for cutting standing crops.",detailsHi:"खड़ी फसल काटने के लिए संचालित कटाई मशीन।",image:"power-reaper.webp"},
+  {category:"agriculture",brand:"Balwaan",nameEn:"Power Sprayer",nameHi:"पावर स्प्रेयर",capacity:"Models available",detailsEn:"Engine-powered sprayer for crop protection across larger fields.",detailsHi:"बड़े खेतों में फसल-सुरक्षा छिड़काव के लिए इंजन से चलने वाला स्प्रेयर।",image:"power-sprayer.webp"},
 ];
 
 const productCategories: {id: ProductCategory; en: string; hi: string; noteEn: string; noteHi: string}[] = [
@@ -69,7 +78,7 @@ const copy = {
     quote: "Get the right machine", explore: "Explore products", since: "A legacy of trust since 1974",
     story: "Built in Kanpur. Trusted across generations.",
     storyp: "Soni Machinery Stores is a trusted machinery and equipment dealer in Kanpur, serving customers since 1974. For over 50 years, we have built our reputation on fair business practices, dependable service, genuine guidance and long-standing relationships with generations of customers.",
-    products: "Machinery for every requirement", productSub: "Explore 40 products with catalogue-matched brands, capacities and photographs.",
+    products: "Machinery for every requirement", productSub: "Explore 49 products with catalogue-matched brands, capacities and photographs.",
     services: "Service beyond the sale", dealers: "We are authorised dealers of", gallery: "Life in motion", testimonials: "Relationships that last", faq: "Frequently asked questions", contact: "Let’s find the right machine for your work.",
   },
   hi: {
@@ -80,7 +89,7 @@ const copy = {
     quote: "सही मशीन चुनें", explore: "उत्पाद देखें", since: "1974 से विश्वास की विरासत",
     story: "कानपुर में शुरुआत। पीढ़ियों का विश्वास।",
     storyp: "लाटूश रोड से, सोनी मशीनरी स्टोर्स किसानों, ठेकेदारों, छोटे व्यवसायों और औद्योगिक ग्राहकों की सेवा एक स्थायी वादे के साथ करता आया है: जरूरत समझें, सही मशीन सुझाएँ और हर बिक्री के बाद साथ निभाएँ।",
-    products: "हर जरूरत के लिए मशीनरी", productSub: "कैटलॉग से मिलाए गए ब्रांड, क्षमता और तस्वीरों सहित 40 उत्पाद देखें।",
+    products: "हर जरूरत के लिए मशीनरी", productSub: "कैटलॉग से मिलाए गए ब्रांड, क्षमता और तस्वीरों सहित 49 उत्पाद देखें।",
     services: "बिक्री के बाद भी सेवा", dealers: "हम इनके अधिकृत विक्रेता हैं", gallery: "खेत से प्रगति तक", testimonials: "रिश्ते जो चलते रहें", faq: "अक्सर पूछे जाने वाले सवाल", contact: "आपके काम के लिए सही मशीन चुनते हैं।",
   }
 };
