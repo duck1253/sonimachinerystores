@@ -37,6 +37,19 @@
     "How quickly can spare parts be arranged?":"स्पेयर पार्ट्स कितनी जल्दी मिल सकते हैं?","Availability timelines depend on the machine, part number and supplier stock. Share the model and required part so we can check it accurately.":"समय मशीन, पार्ट नंबर और सप्लायर स्टॉक पर निर्भर है। सही जांच के लिए मॉडल और आवश्यक पार्ट बताएं।",
     "How quickly do you respond to after-sales requests?":"बिक्री के बाद सहायता की पूछताछ का जवाब कितनी जल्दी मिलता है?","We usually reply to calls and WhatsApp enquiries within 2 hours during business hours. Resolution time depends on the machine and support required.":"व्यावसायिक समय में कॉल और व्हाट्सऐप का जवाब सामान्यतः 2 घंटे में दिया जाता है। समाधान का समय मशीन और आवश्यक सहायता पर निर्भर है।"
   }).forEach(([english,hindi]) => translations.set(english,hindi));
+  Object.entries({
+    "BROCHURES ·":"ब्रोशर ·",
+    "Download our product brochures":"हमारे उत्पाद ब्रोशर डाउनलोड करें",
+    "Keep our dairy and agricultural machinery ranges handy for easy reference.":"आसान जानकारी के लिए हमारी डेयरी और कृषि मशीनरी की रेंज अपने पास रखें।",
+    "DAIRY EQUIPMENT":"डेयरी उपकरण",
+    "Dairy Products Brochure":"डेयरी उत्पाद ब्रोशर",
+    "Cream separators and dairy equipment from Soni Machinery Stores.":"सोनी मशीनरी स्टोर्स के क्रीम सेपरेटर और डेयरी उपकरण।",
+    "AGRICULTURAL MACHINERY":"कृषि मशीनरी",
+    "Agricultural Products Brochure":"कृषि उत्पाद ब्रोशर",
+    "Agricultural machines and field equipment available from our store.":"हमारे स्टोर पर उपलब्ध कृषि मशीनें और खेत के उपकरण।",
+    "Open brochure":"ब्रोशर खोलें",
+    "Download PDF":"पीडीएफ डाउनलोड करें"
+  }).forEach(([english,hindi]) => translations.set(english,hindi));
   const categoryInfo = {
     dairy:["Dairy Equipment","डेयरी उपकरण","dairy-equipment.html","kamdhenu-cream-separator-60-lph.svg"],
     pumps:["Water Pumps","वॉटर पंप","water-pumps.html","texmo-dms-2-water-pump.svg"],
