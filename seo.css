@@ -30,7 +30,7 @@
 .product-image span,.product-image em{z-index:2}
 .product-copy{box-sizing:border-box;width:100%;max-width:100%;min-width:0}
 .product-copy h2,.product-copy h3{font-family:'DM Sans',Arial,Helvetica,sans-serif!important;font-size:18px!important;line-height:1.3!important;font-weight:800!important;letter-spacing:0!important}
-.testimonials[hidden]{display:none!important}
+.homepage-category-panel{grid-template-columns:repeat(7,minmax(0,1fr))!important}.testimonials .quotes{grid-template-columns:repeat(4,minmax(0,1fr))}.testimonials .quotes blockquote{display:flex;min-height:285px;flex-direction:column}.testimonials .quotes cite{margin-top:auto}@media(max-width:1100px){.testimonials .quotes{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){.testimonials .quotes{grid-template-columns:1fr}.testimonials .quotes blockquote{min-height:0}}
 @media(max-width:900px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:420px){.product-grid{grid-template-columns:minmax(0,1fr)}.product-copy h2,.product-copy h3{font-size:17px!important}.product-image,.catalogue-image{aspect-ratio:1/1}}
 
