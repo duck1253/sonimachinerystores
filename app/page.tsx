@@ -73,6 +73,16 @@ const productCategories: {id: ProductCategory; en: string; hi: string; noteEn: s
   {id:"compressors", en:"Air Compressors", hi:"एयर कंप्रेसर", noteEn:"Workshop air supply", noteHi:"वर्कशॉप वायु आपूर्ति"},
 ];
 
+const categoryPageSlugs: Record<Exclude<ProductCategory,"all">, string> = {
+  dairy: "dairy-equipment.html",
+  pumps: "water-pumps.html",
+  motors: "electric-motors.html",
+  agriculture: "agricultural-machinery.html",
+  cleaning: "cleaning-equipment.html",
+  pulverisers: "pulverisers.html",
+  compressors: "air-compressors.html",
+};
+
 const copy = {
   en: {
     nav: ["Home", "Legacy", "Products", "Services", "Gallery", "Contact"],
@@ -152,7 +162,6 @@ export default function Home() {
   const [slide, setSlide] = useState(0);
   const [edit, setEdit] = useState(false);
   const [showAllGallery, setShowAllGallery] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<ProductCategory>("all");
   const t = copy[lang];
   const assetBase = typeof window !== "undefined" && window.location.hostname.endsWith("github.io") ? "/sonimachinerystores" : "";
   useEffect(() => { const timer = setInterval(() => setSlide(s => (s + 1) % heroImages.length), 5000); return () => clearInterval(timer); }, []);
@@ -183,10 +192,8 @@ export default function Home() {
       <div className="purpose-grid"><article><span>01 · OUR VISION</span><h3>{lang === "en" ? "The most trusted machinery partner for farmers, businesses and communities across Uttar Pradesh." : "उत्तर प्रदेश के किसानों, व्यवसायों और समुदायों का सबसे भरोसेमंद मशीनरी साथी बनना।"}</h3></article><article><span>02 · OUR MISSION</span><h3>{lang === "en" ? "The right machine for the right job, at a fair price—backed by genuine guidance and dependable service." : "सही काम के लिए सही मशीन, उचित मूल्य पर—सच्ची सलाह और भरोसेमंद सेवा के साथ।"}</h3></article><article className="legacy-promise"><span>OUR PROMISE · हमारा वादा</span><p>{lang === "en" ? "Generations of experience. Practical advice. Dependable machinery. Honest service." : "पीढ़ियों का अनुभव। व्यावहारिक सलाह। भरोसेमंद मशीनरी। ईमानदार सेवा।"}</p></article></div>
     </section>
 
-    <section className="products section" id="products"><div className="section-head"><div><div className="section-kicker">OUR RANGE · हमारी रेंज</div><h2>{t.products}</h2><p>{t.productSub}</p></div><a className="text-link" href="#contact">{lang === "en" ? "Request full catalogue →" : "पूरी सूची माँगें →"}</a></div>
-      <div className="category-panel" role="tablist" aria-label={lang === "en" ? "Product categories" : "उत्पाद श्रेणियाँ"}>{productCategories.map(category => {const count = category.id === "all" ? products.length : products.filter(item => item.category === category.id).length; return <button key={category.id} role="tab" aria-selected={activeCategory === category.id} className={activeCategory === category.id ? "active" : ""} onClick={()=>setActiveCategory(category.id)}><span>{lang === "en" ? category.en : category.hi}</span><small>{lang === "en" ? category.noteEn : category.noteHi}</small><b>{String(count).padStart(2,"0")}</b></button>})}</div>
-      <div className="category-result"><span>{lang === "en" ? "Showing" : "दिखाए जा रहे हैं"}</span><b>{activeCategory === "all" ? (lang === "en" ? "All products" : "सभी उत्पाद") : (lang === "en" ? productCategories.find(c=>c.id===activeCategory)?.en : productCategories.find(c=>c.id===activeCategory)?.hi)}</b></div>
-      <div className="product-grid">{products.map((p,i)=>({p,i})).filter(({p})=>activeCategory === "all" || p.category === activeCategory).map(({p,i})=><article className="product-card" key={`${p.brand}-${p.nameEn}`}><div className={`product-image catalogue-image${p.nameEn === "Petrol Pump Set" ? " petrol-pump-image" : ""}`}><img src={`${assetBase}/products-catalogue/${p.image}`} alt={`${p.brand} ${lang === "en" ? p.nameEn : p.nameHi}`}/><span>{String(i+1).padStart(2,"0")}</span><em>{lang === "en" ? productCategories.find(c=>c.id===p.category)?.en : productCategories.find(c=>c.id===p.category)?.hi}</em></div><div className="product-copy" contentEditable={edit} suppressContentEditableWarning><small className="product-brand">{p.brand} · {p.capacity}</small><h3>{lang === "en" ? p.nameEn : p.nameHi}</h3><p>{lang === "en" ? p.detailsEn : p.detailsHi}</p><a href="#contact">{lang === "en" ? "Enquire" : "पूछताछ"} →</a></div></article>)}</div>
+    <section className="products section" id="products"><div className="section-head"><div><div className="section-kicker">OUR RANGE · हमारी रेंज</div><h2>{t.products}</h2><p>{lang === "en" ? "Choose a machinery category to view its products on a separate page." : "उसके उत्पाद अलग पेज पर देखने के लिए मशीनरी की श्रेणी चुनें।"}</p></div><a className="text-link" href={`${assetBase}/products.html`}>{lang === "en" ? "Browse the complete catalogue →" : "पूरी मशीनरी सूची देखें →"}</a></div>
+      <div className="category-panel homepage-categories" aria-label={lang === "en" ? "Product categories" : "उत्पाद श्रेणियाँ"}>{productCategories.filter(category=>category.id!=="all").map(category => {const id=category.id as Exclude<ProductCategory,"all">; const count=products.filter(item=>item.category===id).length; const image=products.find(item=>item.category===id)?.image; return <a className="category-tile" key={id} href={`${assetBase}/products/${categoryPageSlugs[id]}`}>{image&&<img loading="lazy" src={`${assetBase}/products-catalogue/${image}`} alt={`${lang === "en" ? category.en : category.hi} - Soni Machinery Stores Kanpur`}/>}<span>{lang === "en" ? category.en : category.hi}</span><small>{lang === "en" ? `View ${count} products` : `${count} उत्पाद देखें`}</small></a>})}</div>
     </section>
 
     <section className="services section" id="services"><div className="section-kicker light">WHAT WE DO · हमारी सेवाएँ</div><h2>{t.services}</h2><div className="service-grid">{[
@@ -205,11 +212,15 @@ export default function Home() {
 
     <section className="gallery section store-gallery-section" id="gallery"><div className="section-head"><div><div className="section-kicker">INSIDE SONI MACHINERY · सोनी मशीनरी की झलक</div><h2>{lang === "en" ? "A working legacy, captured over the years." : "वर्षों से चलती आ रही विरासत की झलक।"}</h2></div><p>{lang === "en" ? "Real moments from our Latouche Road store—our people, machinery, customers and the everyday work behind five decades of trust." : "हमारे लाटूश रोड स्टोर के वास्तविक पल—हमारे लोग, मशीनरी, ग्राहक और पाँच दशकों के विश्वास के पीछे का रोज़मर्रा का काम।"}</p></div><div className="store-masonry">{storeGallery.slice(0,showAllGallery ? storeGallery.length : 12).map((src,i)=><figure key={src}><img src={`${assetBase}${src}`} loading="lazy" alt={`${i < 6 ? "Soni Machinery Stores exterior and team" : "Machinery and equipment inside Soni Machinery Stores"} ${i+1}`}/><span>{String(i+1).padStart(2,"0")}</span></figure>)}</div><div className="gallery-action"><button className="btn" onClick={()=>setShowAllGallery(!showAllGallery)}>{showAllGallery ? (lang === "en" ? "Show less" : "कम दिखाएँ") : (lang === "en" ? `View all ${storeGallery.length} photographs` : `सभी ${storeGallery.length} तस्वीरें देखें`)}</button></div></section>
 
-    <section className="testimonials section"><div className="section-kicker">CUSTOMER VOICES · ग्राहकों की बात</div><h2>{t.testimonials}</h2><div className="quotes">{[
-      ["They explained the options clearly and helped us choose what actually suited our farm.","Rajesh Yadav · Unnao"],
-      ["Fair dealing, reliable machines and support when we needed it—the relationship feels personal.","Harpreet Singh · Kanpur"],
-      ["Our family has been buying machinery from Soni Machinery Stores for years.","Mohd. Irfan · Fatehpur"],
-    ].map((q,i)=><blockquote key={i}><div>★★★★★</div><p>“{lang === "en" ? q[0] : "सही सलाह, उचित व्यवहार और जरूरत के समय भरोसेमंद सहायता मिली।"}”</p><cite>{q[1]}</cite></blockquote>)}</div></section>
+    <section className="testimonials section" id="testimonials"><div className="section-kicker">{lang === "en" ? "CUSTOMER VOICES" : "ग्राहकों की बात"}</div><h2>{t.testimonials}</h2><div className="quotes">{[
+      {en:"The team explained the machine clearly and helped us compare the available options before buying.",hi:"टीम ने मशीन को स्पष्ट रूप से समझाया और खरीदने से पहले उपलब्ध विकल्पों की तुलना करने में मदद की।",by:"Customer · Kannauj",byHi:"ग्राहक · कन्नौज"},
+      {en:"We received practical guidance, fair dealing and prompt help when we had a question after purchase.",hi:"हमें व्यावहारिक सलाह, उचित व्यवहार और खरीद के बाद सवाल होने पर तुरंत सहायता मिली।",by:"Customer · Hamirpur",byHi:"ग्राहक · हमीरपुर"},
+      {en:"They understood our dairy requirement and recommended equipment suited to our daily work.",hi:"उन्होंने हमारी डेयरी की जरूरत समझी और रोज़ के काम के अनुकूल उपकरण सुझाए।",by:"Customer · Akbarpur",byHi:"ग्राहक · अकबरपुर"},
+      {en:"The product demonstration made operation and maintenance easy to understand.",hi:"उत्पाद प्रदर्शन से मशीन का संचालन और रखरखाव समझना आसान हो गया।",by:"Customer · Bilhaur",byHi:"ग्राहक · बिल्हौर"},
+      {en:"Good range of agricultural machinery with straightforward advice and dependable service.",hi:"कृषि मशीनरी की अच्छी रेंज, सीधी सलाह और भरोसेमंद सेवा मिली।",by:"Customer · Ghatampur",byHi:"ग्राहक · घाटमपुर"},
+      {en:"They explained the options clearly and helped us choose what actually suited our farm.",hi:"उन्होंने विकल्प साफ़-साफ़ समझाए और हमारे खेत के लिए सही मशीन चुनने में मदद की।",by:"Rajesh Yadav · Unnao",byHi:"राजेश यादव · उन्नाव"},
+      {en:"Our family has been buying machinery from Soni Machinery Stores for years.",hi:"हमारा परिवार वर्षों से सोनी मशीनरी स्टोर्स से मशीनरी खरीदता आ रहा है।",by:"Mohd. Irfan · Fatehpur",byHi:"मोहम्मद इरफान · फतेहपुर"},
+    ].map((q,i)=><blockquote key={i}><div aria-label="Five stars">★★★★★</div><p>“{lang === "en" ? q.en : q.hi}”</p><cite>{lang === "en" ? q.by : q.byHi}</cite></blockquote>)}</div></section>
 
     <section className="faq section"><div><div className="section-kicker">HELP CENTRE · सहायता</div><h2>{t.faq}</h2><p>{lang === "en" ? "Can’t find your answer? Call us and we’ll guide you." : "जवाब नहीं मिला? हमें कॉल करें, हम आपकी मदद करेंगे।"}</p></div><div className="accordions">{[
       ["How do I choose the right machine?","Tell us the job, land size, frequency of use and budget. Our team will suggest suitable options."],

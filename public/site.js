@@ -48,7 +48,11 @@
     "Agricultural Products Brochure":"कृषि उत्पाद ब्रोशर",
     "Agricultural machines and field equipment available from our store.":"हमारे स्टोर पर उपलब्ध कृषि मशीनें और खेत के उपकरण।",
     "Open brochure":"ब्रोशर खोलें",
-    "Download PDF":"पीडीएफ डाउनलोड करें"
+    "Download PDF":"पीडीएफ डाउनलोड करें",
+    "Explore machinery categories":"मशीनरी श्रेणियाँ देखें",
+    "Choose a machinery category to view its products on a separate page.":"उसके उत्पाद अलग पेज पर देखने के लिए मशीनरी की श्रेणी चुनें।",
+    "Browse the complete machinery catalogue →":"पूरी मशीनरी सूची देखें →",
+    "Relationships that last":"रिश्ते जो चलते रहें"
   }).forEach(([english,hindi]) => translations.set(english,hindi));
   const categoryInfo = {
     dairy:["Dairy Equipment","डेयरी उपकरण","dairy-equipment.html","kamdhenu-cream-separator-60-lph.svg"],
