@@ -26,6 +26,7 @@
 .product-card{box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden;contain:layout paint}
 .product-image,.catalogue-image{box-sizing:border-box;width:100%!important;max-width:100%!important;min-width:0;height:auto!important;aspect-ratio:1/1;overflow:hidden;contain:paint;clip-path:inset(0);isolation:isolate}
 .product-image img,.catalogue-image img{position:absolute!important;inset:12px!important;display:block;box-sizing:border-box;width:calc(100% - 24px)!important;max-width:calc(100% - 24px)!important;min-width:0;height:calc(100% - 24px)!important;max-height:calc(100% - 24px)!important;padding:0!important;object-fit:contain!important}
+.petrol-pump-image img{inset:28px!important;width:calc(100% - 56px)!important;max-width:calc(100% - 56px)!important;height:calc(100% - 56px)!important;max-height:calc(100% - 56px)!important;object-fit:scale-down!important;object-position:center!important}
 .product-image span,.product-image em{z-index:2}
 .product-copy{box-sizing:border-box;width:100%;max-width:100%;min-width:0}
 .product-copy h2,.product-copy h3{font-family:'DM Sans',Arial,Helvetica,sans-serif!important;font-size:18px!important;line-height:1.3!important;font-weight:800!important;letter-spacing:0!important}
