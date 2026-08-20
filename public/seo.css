@@ -51,3 +51,9 @@
 .kamdhenu-service img{width:100%;max-width:320px;height:auto;object-fit:contain}
 .kamdhenu-service small{color:var(--green);font-size:10px;font-weight:800;letter-spacing:.16em}.kamdhenu-service h3,.kamdhenu-service h2{margin:10px 0 8px;font-family:'DM Sans','Noto Sans Devanagari',sans-serif;font-size:26px}.kamdhenu-service p{margin:0;color:var(--muted);line-height:1.65}
 @media(max-width:700px){.kamdhenu-service{grid-template-columns:1fr;gap:22px}.kamdhenu-service img{max-width:240px}}
+
+/* Expanded catalogue category navigation */
+.category-panel{grid-template-columns:repeat(7,minmax(0,1fr))!important}
+.product-filters .category-panel,.category-panel-with-all,.product-detail [data-detail-category] .category-panel{grid-template-columns:repeat(8,minmax(0,1fr))!important}
+@media(max-width:1100px){.category-panel,.category-panel-with-all,.product-detail [data-detail-category] .category-panel{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media(max-width:650px){.category-panel,.category-panel-with-all,.product-detail [data-detail-category] .category-panel{display:flex!important;overflow-x:auto!important}.category-panel .category-tile{min-width:150px!important}}
