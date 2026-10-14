@@ -205,8 +205,6 @@
       card.querySelector(".get-quote").textContent = hindiMode ? "कीमत पूछें" : "Get Quote";
       card.querySelector(".product-enquiry").textContent = hindiMode ? `${card.dataset.productNameHi} के बारे में पूछताछ करें` : `Enquire about this ${card.dataset.productName.split(" ").slice(1).join(" ").toLowerCase()}`;
       card.querySelector(".product-image em").textContent = hindiMode ? categoryInfo[card.dataset.category][1] : categoryInfo[card.dataset.category][0];
-      const specsSummary = card.querySelector(".product-specs summary");
-      if (specsSummary) specsSummary.childNodes[0].nodeValue = hindiMode ? "तकनीकी विवरण देखें " : "View specifications ";
       card.querySelectorAll("[data-label-en]").forEach(label => { label.textContent = hindiMode ? label.dataset.labelHi : label.dataset.labelEn; });
     });
     document.querySelectorAll("[data-en][data-hi]").forEach(el => { el.textContent = hindiMode ? el.dataset.hi : el.dataset.en; });
