@@ -107,10 +107,29 @@
     if (card && !event.target.closest("a,button")) {
       currentProduct = hindiMode ? card.dataset.productNameHi : card.dataset.productName;
       ga("product_view", { product_name: currentProduct });
-      const specifications = card.querySelector(".specs-table")?.outerHTML || "";
-      const detailImageClass = /submersible|सबमर्सिबल/i.test(currentProduct) ? ' class="vertical-submersible"' : "";
+      // Product data is text, never HTML, including future catalogue imports.
+      const image = document.createElement("img");
+      const imageUrl = new URL(card.dataset.image, location.href);
+      if (imageUrl.origin === location.origin && imageUrl.pathname.startsWith("/sonimachinerystores/products-catalogue/")) image.src = imageUrl.href;
+      image.alt = `${currentProduct} ${card.dataset.capacity} - Soni Machinery Stores Kanpur`;
+      if (/submersible|सबमर्सिबल/i.test(currentProduct)) image.className = "vertical-submersible";
+      const copy = document.createElement("div");
+      const cta = document.createElement("button");
+      cta.className = "detail-cta";
+      cta.dataset.getQuote = "";
+      cta.dataset.productName = currentProduct;
+      cta.textContent = hindiMode ? "हाँ! मुझे रुचि है" : "Yes! I am interested";
+      const capacity = document.createElement("p");
+      capacity.className = "section-kicker";
+      capacity.textContent = card.dataset.capacity;
+      const heading = document.createElement("h2");
+      heading.textContent = currentProduct;
+      const description = document.createElement("p");
+      description.textContent = hindiMode ? card.dataset.descriptionHi : card.dataset.description;
+      copy.append(cta, capacity, heading, description);
+      // categorySwitcher only interpolates fixed, source-controlled category labels.
       detail.querySelector("[data-detail-category]").innerHTML = categorySwitcher(card.dataset.category);
-      detail.querySelector("[data-detail-content]").innerHTML = `<img${detailImageClass} src="${card.dataset.image}" alt="${currentProduct} ${card.dataset.capacity} - Soni Machinery Stores Kanpur"><div><button class="detail-cta" data-get-quote data-product-name="${currentProduct}">${hindiMode ? "हाँ! मुझे रुचि है" : "Yes! I am interested"}</button><p class="section-kicker">${card.dataset.capacity}</p><h2>${currentProduct}</h2><p>${hindiMode ? card.dataset.descriptionHi : card.dataset.description}</p>${specifications ? `<h3 class="specifications-heading">${hindiMode ? "तकनीकी विवरण" : "Specifications"}</h3>${specifications}` : ""}</div>`;
+      detail.querySelector("[data-detail-content]").replaceChildren(image, copy);
       detail.showModal();
       return;
     }
